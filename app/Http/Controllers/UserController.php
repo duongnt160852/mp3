@@ -13,7 +13,9 @@ class UserController extends Controller
     function getHome(){
         $newMusics=Music::getNewMusics(); 
         $mostViewMusics=Music::getMostViewMusics();
-        return view('user/index',['newMusics'=>$newMusics,'mostViewMusics'=>$mostViewMusics]);
+        $newAlbums=Album::getNewAlbums();
+        $mostViewAlbums=Album::getMostViewAlbums();
+        return view('user/index',['newMusics'=>$newMusics,'mostViewMusics'=>$mostViewMusics,'newAlbums'=>$newAlbums,'mostViewAlbums'=>$mostViewAlbums]);
     }
 
     function ajaxLogin(Request $request, $username, $password){
