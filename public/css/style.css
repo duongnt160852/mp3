@@ -4,6 +4,23 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+.frame1{
+  background-color: #99CCFF;
+  padding:20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px #666;
+}
+.lyric{
+  margin-top:50px;
+  padding:5px;
+  background-color: #CAE5E8;
+  border:1px dotted ;
+  border-radius: 5px;
+}
+.titlemucsic{
+  color: #511F90;
+  font-weight: bold;
+}
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
@@ -392,10 +409,6 @@ ul.nav.nav-pills.nav-stacked.custom-nav li:hover i.camera {
     margin-left: 0px;
 }
 
-.header-section{
-  height: 65px;
-}
-
 .left-side-collapsed .left-side {
     width: 52px;
     top: 0px;
@@ -520,6 +533,7 @@ ul.nav li a span {
 
 .left-side-collapsed .main-content {
     margin-left: 52px;
+    background-color: #E8D3E3;
 }
 
 
@@ -1255,7 +1269,8 @@ fieldset#body {
     margin-left: 3%;
 }
 .profile_details {
-    padding: 0 5em;
+  height: 64px;
+   
 }
 a.top-sign {
     display: inline-block;

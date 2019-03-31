@@ -25,6 +25,10 @@ Route::get('nghe-si', function () {
     return view('user/singer');
 });
 
+Route::get('audio',function(){
+	return view('user/audio');
+});
+
 Route::get('addMusic','MusicController@addMusic');
 Route::get('addAlbum','AlbumController@addAlbum');
 Route::get('addSinger','SingerController@addSinger');
@@ -38,37 +42,36 @@ Route::group(['prefix'=>'user'],function(){
 
 Route::group(["prefix"=>"admin" ],function(){
 	Route::group(["prefix"=>"singer"],function(){
-		Route::get("list","SingerController@list");
-		Route::get("add","SingerController@getAdd");
-		Route::post("add","SingerController@postAdd");
-		Route::get("edit/{id}","SingerController@getEdit");
-		Route::post("edit/{id}","SingerController@postEdit");
-		Route::get("delete/{id}","SingerController@delete");
+		Route::get("list","AdminController@getListSinger");
+		Route::get("add","AdminController@getAddSinger");
+		Route::post("add","AdminController@postAddSinger");
+		Route::get("edit/{id}","AdminController@getEditSinger");
+		Route::post("edit/{id}","AdminController@postEditSinger");
+		Route::get("delete/{id}","AdminController@deleteSinger");
 	});
 	Route::group(["prefix"=>"song"],function(){
-		Route::get("list","SongController@list");
-		Route::get("add","SongController@getAdd");
-		Route::post("add","SongController@postAdd");
-		Route::get("edit/{id}","SongController@getEdit");
-		Route::post("edit/{id}","SongController@postEdit");
-		Route::get("delete/{id}","SongController@delete");
-		Route::post("add1","SongController@postAdd1");
+		Route::get("list","AdminController@getListSong");
+		Route::get("add","AdminController@getAddSong");
+		Route::post("add","AdminController@postAddSong");
+		Route::get("edit/{id}","AdminController@getEditSong");
+		Route::post("edit/{id}","AdminController@postEditSong");
+		Route::get("delete/{id}","AdminController@deleteSong");
 	});
 	Route::group(["prefix"=>"album"],function(){
-		Route::get("list","AlbumController@list");
-		Route::get("add","AlbumController@getAdd");
-		Route::post("add","AlbumController@postAdd");
-		Route::get("edit/{id}","AlbumController@getEdit");
-		Route::post("edit/{id}","AlbumController@postEdit");
-		Route::get("delete/{id}","AlbumController@delete");
+		Route::get("list","AdminController@getListAlbum");
+		Route::get("add","AdminController@getAddAlbum");
+		Route::post("add","AdminController@postAddAlbum");
+		Route::get("edit/{id}","AdminController@getEditAlbum");
+		Route::post("edit/{id}","AdminController@postEditAlbum");
+		Route::get("delete/{id}","AdminController@deleteAlbum");
 	});
 	Route::group(["prefix"=>"topic"],function(){
-		Route::get("add","TopicController@getAdd");
-		Route::post("add","TopicController@postAdd");
-		Route::get("list","TopicController@list");
-		Route::get("edit/{id}","TopicController@getEdit");
-		Route::post("edit/{id}","TopicController@postEdit");
-		Route::get("delete/{id}","TopicController@delete");
+		Route::get("add","AdminController@getAddTopic");
+		Route::post("add","AdminController@postAddTopic");
+		Route::get("list","AdminController@getListTopic");
+		Route::get("edit/{id}","AdminController@getEditTopic");
+		Route::post("edit/{id}","AdminController@postEditTopic");
+		Route::get("delete/{id}","AdminController@deleteTopic");
 	});
 	Route::get("home","AdminController@getHome");
 	Route::get("/","AdminController@getHome");

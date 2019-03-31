@@ -10,7 +10,7 @@
         <div class="sidebar-wrapper " >
             <div class="logo">
                 <a href="admin/home" class="simple-text">
-                    Trắc Nghiệm
+                Nhạc Của Chúng Tui
                 </a>
             </div>
             <div class="sidebar-scroll">
@@ -23,91 +23,78 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ THÍ SINH</p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/list">
-                                        <p>DANH SÁCH THÍ SINH</p>
+                                    <a href="admin/song/list">
+                                        <p>DANH SÁCH BÀI HÁT</p>
                                     </a>
                                 </li>
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/add">
-                                        <p>THÊM THÍ SINH</p>
+                                    <a href="admin/song/add">
+                                        <p>THÊM BÀI HÁT</p>
                                     </a>
-                                </li>      
+                                </li>  
+                                <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
+                                    <a href="admin/song/add">
+                                        <p>DUYỆT BÀI HÁT</p>
+                                    </a>
+                                </li>       
                             </ul>
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CÂU HỎI</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/list">
-                                        <p>DANH SÁCH CÂU HỎI</p>
+                                    <a href="admin/singer/list">
+                                        <p>DANH SÁCH CA SĨ</p>
                                     </a>
                                 </li>
                                 <li id="questionAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/add">
-                                        <p>THÊM CÂU HỎI</p>
+                                    <a href="admin/singer/add">
+                                        <p>THÊM CA SĨ</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
-                    <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ MÔN THI</p></a>
-                        <div id="subSubject" class="collapse in">
+                    <li class="active">
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/list">
-                                        <p>DANH SÁCH MÔN THI</p>
+                                    <a href="admin/album/list">
+                                        <p>DANH SÁCH ALBUM</p>
                                     </a>
                                 </li>
-                                <li id="subjectAdd" class="active" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/add">
-                                        <p>THÊM MÔN THI</p>
+                                <li id="subjectAdd" style="margin: 0px;position: relative;left: 47px;width: 212px" class="active">
+                                    <a href="admin/album/add">
+                                        <p>THÊM ALBUM</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ CHỦ ĐỀ</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/list">
-                                        <p>DANH SÁCH CHỦ ĐỀ</p>
+                                        <p>DANH SÁCH THỂ LOẠI</p>
                                     </a>
                                 </li>
                                 <li id="topicAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/add">
-                                        <p>THÊM CHỦ ĐỀ</p>
+                                        <p>THÊM THỂ LOẠI</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
-                    </li> 
-                    <li>
-                        <a href="#subExam" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ĐỀ THI</p></a>
-                        <div id="subExam" class="collapse ">
-                            <ul class="nav">
-                                <li id="examList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/list">
-                                        <p>DANH SÁCH ĐỀ THI</p>
-                                    </a>
-                                </li>
-                                <li id="examAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/add">
-                                        <p>THÊM ĐỀ THI</p>
-                                    </a>
-                                </li>     
-                            </ul>
-                        </div>
-                    </li> 
-                                  
+                    </li>       
                 </ul>
                 </nav>
             </div>
@@ -127,7 +114,7 @@
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     @if(count($errors)>0)
                                         <div class="alert alert-danger" style="width: 30%">
-                                           {{$errors->all()[0]}} 
+                                           
                                         </div>
                                     @endif
                                     @if(session('thongbao'))

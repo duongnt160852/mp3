@@ -7,9 +7,9 @@
 }
 div.audio-player {
   position: relative;
-  width: 100% !important;
+  width: 200% !important;
   height:42px !important;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 /* play/pause control */
 .mejs-controls .mejs-button button {

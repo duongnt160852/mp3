@@ -10,13 +10,13 @@
         <div class="sidebar-wrapper " >
             <div class="logo">
                 <a href="admin/home" class="simple-text">
-                    Trắc Nghiệm
+                    Nhạc Của Chúng Tui
                 </a>
             </div>
             <div class="sidebar-scroll">
                 <nav>
-                    <ul class="nav">
-                    <li id="home"> 
+                    <ul class="nav" >
+                    <li id="home" class="active"> 
                         <a href="admin/home">
                             <i class="ti-home"></i>
                             <p>Trang Chủ</p>
@@ -107,109 +107,6 @@
     <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-warning text-center">
-                                            <i class="ti-server"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Tổng Số Thí Sinh </p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-reload"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-success text-center">
-                                            <i class="ti-wallet"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Thí Sinh Đang Thi</p>
-                                                                                  
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-calendar"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-danger text-center">
-                                            <i class="ti-pulse"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7" style="padding:0px">
-                                        <div class="numbers">
-                                            <p>Số câu hỏi đã đăng</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-timer"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-{{--                     <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-info text-center">
-                                            <i class="ti-twitter-alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Số đề thi</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-reload"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
                     <div class="col-lg-4 col-md-5">
                         <div class="card card-user">
                             <div class="image">
@@ -218,8 +115,8 @@
                             <div class="content">
                                 <div class="author">
                                   <img class="avatar border-white" src="images/faces/face-2.jpg" alt="..."/>
-                                  <h4 class="title"><br /><!--Tên Admin-->
-                                     <a style="cursor: pointer;"><small></small></a> <!--Nhập Địa Chỉ Email-->
+                                  <h4 class="title"><br />
+                                     <a style="cursor: pointer;"><small></small></a>
                                   </h4>
                                 </div>
                             </div>
@@ -229,57 +126,39 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Chỉnh Sửa Thông Tin Cá Nhân</h4>
+                                <h4 class="title">Thông Tin Cá Nhân</h4>
                             </div>
                             <div class="content">
                                 <form action="" method="post">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Company</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="RABILOO">
+                                                <label>Công Ty</label>
+                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="Nhạc Của Chúng Tui">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Tên Tài Khoản</label><!--Tên ADMIN-->
+                                                <label>Tên Tài Khoản</label>
                                                 <input type="text" class="form-control border-input" disabled value="" >
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Địa Chỉ Email</label> <!--Email-->
-                                                <input type="email" class="form-control border-input" value="" name="email" required="">
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Họ Và Tên Đệm</label>
-                                                <input type="text" class="form-control border-input"  value="" name="middlename" required="">
+                                                <label>Họ Tên</label>
+                                                <input type="text" class="form-control border-input" disabled value="" name="middlename" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Tên</label>
-                                                <input type="text" class="form-control border-input"  value="" name="name" required="">
+                                                <label for="exampleInputEmail1">Địa Chỉ Email</label>   
+                                                <input type="email" class="form-control border-input" disabled value="" name="email" required="">
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Địa Chỉ</label>
-                                                <input type="text" class="form-control border-input" value="" name="address" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Cập Nhật</button>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
@@ -299,18 +178,6 @@
             $('#home').addClass("active");
 
             $('title').html("Trang chủ");
-
-            demo.initChartist();
-
-            $.notify({
-                icon: 'ti-gift',
-                message: "Welcome to multiplechoice.com"
-
-            },{
-                type: 'success',
-                timer: 2000
-            });
-
         });
     </script>
 @endsection

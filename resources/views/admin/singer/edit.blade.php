@@ -10,12 +10,12 @@
         <div class="sidebar-wrapper " >
             <div class="logo">
                 <a href="admin/home" class="simple-text">
-                    Trắc Nghiệm
+                Nhạc Của Chúng Tui
                 </a>
             </div>
             <div class="sidebar-scroll">
                 <nav>
-                    <ul class="nav">
+                    <ul class="nav" >
                     <li id="home"> 
                         <a href="admin/home">
                             <i class="ti-home"></i>
@@ -23,91 +23,78 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ THÍ SINH</p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/list">
-                                        <p>DANH SÁCH THÍ SINH</p>
+                                    <a href="admin/song/list">
+                                        <p>DANH SÁCH BÀI HÁT</p>
                                     </a>
                                 </li>
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/add">
-                                        <p>THÊM THÍ SINH</p>
+                                    <a href="admin/song/add">
+                                        <p>THÊM BÀI HÁT</p>
                                     </a>
-                                </li>      
+                                </li>  
+                                <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
+                                    <a href="admin/song/add">
+                                        <p>DUYỆT BÀI HÁT</p>
+                                    </a>
+                                </li>       
                             </ul>
                         </div>
                     </li>  
-                    <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CÂU HỎI</p></a>
-                        <div id="subQuestion" class="collapse in">
+                    <li class="active">
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <div id="subQuestion" class="collapse ">
                             <ul class="nav">
-                                <li id="questionList" class="active" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/list">
-                                        <p>DANH SÁCH CÂU HỎI</p>
+                                <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px" class="active">
+                                    <a href="admin/singer/list">
+                                        <p>DANH SÁCH CA SĨ</p>
                                     </a>
                                 </li>
-                                <li id="questionAdd"  style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/add">
-                                        <p>THÊM CÂU HỎI</p>
+                                <li id="questionAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
+                                    <a href="admin/singer/add">
+                                        <p>THÊM CA SĨ</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ MÔN THI</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/list">
-                                        <p>DANH SÁCH MÔN THI</p>
+                                    <a href="admin/album/list">
+                                        <p>DANH SÁCH ALBUM</p>
                                     </a>
                                 </li>
                                 <li id="subjectAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/add">
-                                        <p>THÊM MÔN THI</p>
+                                    <a href="admin/album/add">
+                                        <p>THÊM ALBUM</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ CHỦ ĐỀ</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/list">
-                                        <p>DANH SÁCH CHỦ ĐỀ</p>
+                                        <p>DANH SÁCH THỂ LOẠI</p>
                                     </a>
                                 </li>
                                 <li id="topicAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/add">
-                                        <p>THÊM CHỦ ĐỀ</p>
+                                        <p>THÊM THỂ LOẠI</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
-                    </li> 
-                    <li>
-                        <a href="#subExam" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ĐỀ THI</p></a>
-                        <div id="subExam" class="collapse ">
-                            <ul class="nav">
-                                <li id="examList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/list">
-                                        <p>DANH SÁCH ĐỀ THI</p>
-                                    </a>
-                                </li>
-                                <li id="examAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/add">
-                                        <p>THÊM ĐỀ THI</p>
-                                    </a>
-                                </li>     
-                            </ul>
-                        </div>
-                    </li> 
-                                  
+                    </li>       
                 </ul>
                 </nav>
             </div>
@@ -137,9 +124,7 @@
                                                        <label>Độ khó</label>
                                                     </div>
                                                     <select class="form-control" name="level">
-                                                        @for($i=1;$i<=5;$i++)
-                                                            <option @if($i==$question->level) {{"selected='selected'"}} @endif value="{{$i}}">{{$i}}</option>
-                                                        @endfor
+                                                        
                                                     </select> 
                                                 </div> 
                                             </div>
@@ -147,7 +132,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Câu Hỏi</label>
-                                                <textarea name="question" rows='5' cols='160' id="demo" class="ckeditor" required="">{{$question->name}}</textarea >
+                                                <textarea name="question" rows='5' cols='160' id="demo" class="ckeditor" required=""></textarea >
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +140,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Đáp Án A</label>
-                                                <textarea name="A" rows='5' cols='160' id="demo" class="ckeditor" required="">{{$question->A}}</textarea >
+                                                <textarea name="A" rows='5' cols='160' id="demo" class="ckeditor" required=""></textarea >
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +148,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Đáp Án B</label>
-                                                <textarea name="B" rows='5' cols='160' id="demo" class="ckeditor" required="">{{$question->B}}</textarea >
+                                                <textarea name="B" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +156,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Đáp Án C</label>
-                                                <textarea name="C" rows='5' cols='160' id="demo" class="ckeditor" required="">{{$question->C}}</textarea >
+                                                <textarea name="C" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +164,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Đáp Án D</label>
-                                                <textarea name="D" rows='5' cols='160' id="demo" class="ckeditor" required="">{{$question->D}}</textarea >
+                                                <textarea name="D" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
                                             </div>
                                         </div>
                                     </div>
@@ -190,16 +175,16 @@
                                                     <div class="form-group">
                                                     
                                                     <div class="col-sm-2">
-                                                        A <input type="radio" name="answer" value="A" required="" @if("A"==$question->answer) {{"checked='checked'"}} @endif> 
+                                                        A <input type="radio" name="answer" value="A" required="" > 
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        B <input type="radio" name="answer" value="B" required="" @if("B"==$question->answer) {{"checked='checked'"}} @endif> 
+                                                        B <input type="radio" name="answer" value="B" required=""  > 
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        C <input type="radio" name="answer" value="C" required="" @if("C"==$question->answer) {{"checked='checked'"}} @endif> 
+                                                        C <input type="radio" name="answer" value="C" required=""  > 
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        D <input type="radio" name="answer" value="D" required="" @if("D"==$question->answer) {{"checked='checked'"}} @endif>  
+                                                        D <input type="radio" name="answer" value="D" required="" >  
                                                     </div>
                                                   </div><!--dap an -->
                                                 </div> 
@@ -208,7 +193,7 @@
                                                    <div class="col-xs-12 col-md-12">
                                                     <label>Giải thích</label>
                                                     <div>
-                                                        <textarea name="comment" rows='5' cols='160' id="demo" class="ckeditor">{{$question->comment}}</textarea >
+                                                        <textarea name="comment" rows='5' cols='160' id="demo" class="ckeditor"> </textarea >
                                                     </div>
                                                 </div> 
                                         </div>

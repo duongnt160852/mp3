@@ -1,6 +1,6 @@
 @extends('admin.layout.index')
 @section('menu')
-    <div class="sidebar" data-background-color="black" data-active-color="danger" >
+<div class="sidebar" data-background-color="black" data-active-color="danger" >
 
     <!--
         Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
@@ -10,104 +10,91 @@
         <div class="sidebar-wrapper " >
             <div class="logo">
                 <a href="admin/home" class="simple-text">
-                    Trắc Nghiệm
+                Nhạc Của Chúng Tui
                 </a>
             </div>
             <div class="sidebar-scroll">
                 <nav>
-                    <ul class="nav">
+                    <ul class="nav" >
                     <li id="home"> 
                         <a href="admin/home">
                             <i class="ti-home"></i>
                             <p>Trang Chủ</p>
                         </a>
                     </li>
-                    <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ THÍ SINH</p></a>
-                        <div id="subUser" class="collapse in">
+                    <li id="user" class="active">
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <div id="subUser" class="collapse">
                             <ul class="nav">
-                                <li id="userList" class="active" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/list">
-                                        <p>DANH SÁCH THÍ SINH</p>
+                                <li class="active" id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px" >
+                                    <a href="admin/song/list">
+                                        <p>DANH SÁCH BÀI HÁT</p>
                                     </a>
                                 </li>
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/user/add">
-                                        <p>THÊM THÍ SINH</p>
+                                    <a href="admin/song/add">
+                                        <p>THÊM BÀI HÁT</p>
                                     </a>
-                                </li>      
+                                </li>  
+                                <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
+                                    <a href="admin/song/add">
+                                        <p>DUYỆT BÀI HÁT</p>
+                                    </a>
+                                </li>       
                             </ul>
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CÂU HỎI</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/list">
-                                        <p>DANH SÁCH CÂU HỎI</p>
+                                    <a href="admin/singer/list">
+                                        <p>DANH SÁCH CA SĨ</p>
                                     </a>
                                 </li>
                                 <li id="questionAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/question/add">
-                                        <p>THÊM CÂU HỎI</p>
+                                    <a href="admin/singer/add">
+                                        <p>THÊM CA SĨ</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ MÔN THI</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/list">
-                                        <p>DANH SÁCH MÔN THI</p>
+                                    <a href="admin/album/list">
+                                        <p>DANH SÁCH ALBUM</p>
                                     </a>
                                 </li>
                                 <li id="subjectAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/subject/add">
-                                        <p>THÊM MÔN THI</p>
+                                    <a href="admin/album/add">
+                                        <p>THÊM ALBUM</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ CHỦ ĐỀ</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/list">
-                                        <p>DANH SÁCH CHỦ ĐỀ</p>
+                                        <p>DANH SÁCH THỂ LOẠI</p>
                                     </a>
                                 </li>
                                 <li id="topicAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
                                     <a href="admin/topic/add">
-                                        <p>THÊM CHỦ ĐỀ</p>
+                                        <p>THÊM THỂ LOẠI</p>
                                     </a>
                                 </li>     
                             </ul>
                         </div>
-                    </li> 
-                    <li>
-                        <a href="#subExam" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ĐỀ THI</p></a>
-                        <div id="subExam" class="collapse ">
-                            <ul class="nav">
-                                <li id="examList" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/list">
-                                        <p>DANH SÁCH ĐỀ THI</p>
-                                    </a>
-                                </li>
-                                <li id="examAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/exam/add">
-                                        <p>THÊM ĐỀ THI</p>
-                                    </a>
-                                </li>     
-                            </ul>
-                        </div>
-                    </li> 
-                                  
+                    </li>       
                 </ul>
                 </nav>
             </div>
@@ -122,7 +109,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Danh Sách Thí Sinh</h4>
+                                <h4 class="title">Danh Sách Bài Hát</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 @if(session('thongbao'))
@@ -133,47 +120,18 @@
                                 <table class="table table-striped" id="table">
                                     <thead>
                                         <th>ID</th>
-                                        <th>Họ Tên</th>
-                                        <th>MSDT</th>
-                                        <th>Email</th>
-                                        <th>Ngày Sinh</th>
-                                        <th>Trạng Thái</th>
-                                        <th>Điểm</th>
-                                        <th>TG Thi</th>
-                                        <th>Môn Thi</th>
-                                        <th>Đề Thi</th>
-                                        <th>Mã Đề</th>
-                                        <th style="display: none">Mật khẩu</th>
+                                        <th>Người Đăng</th>
+                                        <th>Tên Bài Hát</th>
+                                        <th>Ca Sĩ</th>
+                                        <th>Album</th>
+                                        <th>Lượt nghe</th>
+                                        <th>Sáng Tác</th>
+                                        <th>Ngày Đăng</th>
                                         <th>Sửa</th>
                                         <th>Xóa</th>
                                     </thead>
                                     <tbody id="body">
-                                        @foreach($users as $user)
-                                            <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->username}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>{{$user->DoB}}</td>
-                                            <td>@if($user->status=="0")
-                                                    {{"chưa thi"}}
-                                                @elseif($user->status=="1")
-                                                    {{"đang thi"}}
-                                                @endif
-                                                @if($user->status=="2")
-                                                    {{"đã thi"}}
-                                                @endif
-                                            </td>
-                                            <td>{{$user->mark}}</td>
-                                            <td>{{$user->time}}</td>
-                                            <td>{{$user->exam->topic->subject->name}}</td>
-                                            <td>{{$user->exam->name}}</td>
-                                            <td>{{$user->code}}</td>
-                                            <td style="display: none">{{$user->password1}}</td>
-                                            <td><a href="admin/user/edit/{{$user->id}}"><img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
-                                            <td><a onclick="myFunction({{$user->id}})" style="cursor: pointer;"><img src="https://cdn2.iconfinder.com/data/icons/basic-ui-elements-plain/448/010_trash-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
-                                        </tr>
-                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -202,7 +160,7 @@
                 $('#table').DataTable( {
                     dom: 'Bfrtip',
                     buttons: [
-                        'copy', 'excel', 'pdf', 'print'
+                        
                     ]
                 } );
             } );
