@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li class="active">
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px" class="active">
@@ -121,8 +121,8 @@
                                      <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Chủ đề</label>
-                                                <input type="text" class="form-control border-input" placeholder="Câu hỏi" required="" name="topic" value=" ">
+                                                <label>Thể loại</label>
+                                                <input type="text" class="form-control border-input" placeholder="Câu hỏi" required="" name="topic" value="{{$topic->name}}">
                                             </div>
                                         </div>
                                     </div>

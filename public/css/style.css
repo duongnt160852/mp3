@@ -4,6 +4,24 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+.user {
+  background-color: #FDE2CA;
+  border-radius: 20px;
+  -moz-box-shadow: 3px 3px #666;
+  -webkit-box-shadow: 3px 3px #666;
+  box-shadow: 7px 7px #666;
+
+}
+.user .info {
+  margin-left: 20px;
+  margin-top: 20px;
+
+}
+.avatar img {
+  height: 150px;
+  width:150px;
+  margin-left:40%;
+}
 .frame1{
   background-color: #99CCFF;
   padding:20px;

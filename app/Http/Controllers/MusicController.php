@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class MusicController extends Controller
 {
+
+    function getSong(Request $request){
+        $song=Music::where("title",$request->title)->get()[0];
+        if(!session($song->title)){
+            $song->views+=1;
+            $song->save();
+            session([$song->title => "1"]);
+        }
+        return view("user/song",["song"=>$song]);
+    }
+
     function addMusic(){
         $uploader="nhaccuachungtui";
         $name="Trú mưa 12345612";

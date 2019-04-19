@@ -10,6 +10,12 @@ use App\User;
 class UserController extends Controller
 {
 
+    function change(){
+        $a="Nguyễn Tùng Dương 123456";
+        $a=changeTitle($a);
+        echo $a;
+    }
+
     function getHome(){
         $newMusics=Music::getNewMusics(); 
         $mostViewMusics=Music::getMostViewMusics();

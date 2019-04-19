@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="css/admin/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Animation library for notifications   -->
     <link href="css/admin/animate.min.css" rel="stylesheet"/>
@@ -73,80 +74,7 @@
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="js/admin/demo.js"></script>
 
-    
 
-    {{-- <script>
-        $(document).ready(function(){
-            $('#user').click(function(){
-                $('#adminList').css("display","none");
-                $('#adminAdd').css("display","none");
-                $('#topicList').css("display","none");
-                $('#topicAdd').css("display","none");
-                $('#questionList').css("display","none");
-                $('#questionAdd').css("display","none");
-                $('#subjectList').css("display","none");
-                $('#subjectAdd').css("display","none");
-                $('#userList').slideToggle("fast");
-                $('#userAdd').slideToggle("fast");
-            });
-            $('#question').click(function(){
-                $('#adminList').css("display","none");
-                $('#adminAdd').css("display","none");
-                $('#topicList').css("display","none");
-                $('#topicAdd').css("display","none");
-                $('#userList').css("display","none");
-                $('#userAdd').css("display","none");
-                $('#subjectList').css("display","none");
-                $('#subjectAdd').css("display","none");
-                $('#questionList').slideToggle("fast");
-                $('#questionAdd').slideToggle("fast");
-            });
-            $('#subject').click(function(){
-                $('#adminList').css("display","none");
-                $('#adminAdd').css("display","none");
-                $('#topicList').css("display","none");
-                $('#topicAdd').css("display","none");
-                $('#questionList').css("display","none");
-                $('#questionAdd').css("display","none");
-                $('#userList').css("display","none");
-                $('#userAdd').css("display","none");
-                $('#subjectList').slideToggle("fast");
-                $('#subjectAdd').slideToggle("fast");
-            });
-            $('#topic').click(function(){
-                $('#adminList').css("display","none");
-                $('#adminAdd').css("display","none");
-                $('#questionList').css("display","none");
-                $('#questionAdd').css("display","none");
-                $('#userList').css("display","none");
-                $('#userAdd').css("display","none");
-                $('#subjectList').css("display","none");
-                $('#subjectAdd').css("display","none");
-                $('#topicList').slideToggle("fast");
-                $('#topicAdd').slideToggle("fast");
-            });
-            $('#admin1').click(function(){
-                $('#questionList').css("display","none");
-                $('#questionAdd').css("display","none");
-                $('#userList').css("display","none");
-                $('#userAdd').css("display","none");
-                $('#subjectList').css("display","none");
-                $('#subjectAdd').css("display","none");
-                $('#topicList').css("display","none");
-                $('#topicAdd').css("display","none");
-                $('#adminList').slideToggle("fast");
-                $('#adminAdd').slideToggle("fast");
-            });
-            $.get("admin/ajax/admin",function(data){
-                if (data=="1") $("#admin1").css("display","block");
-                else{
-                     $("#admin1").remove();
-                     $("#adminAdd").remove();
-                     $("#adminList").remove();
-                }
-            });
-        });
-    </script> --}}
 
     @yield('script')
 

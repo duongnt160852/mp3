@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li class="active">
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px" class="active">
@@ -109,7 +109,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Danh Sách Chủ Đề</h4>
+                                <h4 class="title">Danh Sách Thể Loại</h4>
                             </div>
                             <div>
                                 @if(session('thongbao'))
@@ -118,17 +118,30 @@
                                     </div>
                                 @endif
                             </div>
+                            <div>
+                                @if(session('xoa'))
+                                    <div class="alert alert-success">
+                                        {{session('xoa')}}
+                                    </div>
+                                @endif
+                            </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
                                         <th>ID</th>
-                                        <th>Chủ Đề</th>
-                                        <th>Môn Thi</th>
+                                        <th>Tên</th>
                                         <th>Sửa</th>
                                         <th>Xóa</th>
                                     </thead>
                                     <tbody>
-                                        
+                                        @foreach($topics as $topic)
+                                            <tr>
+                                                <td>{{$topic->id}}</td>
+                                                <td>{{$topic->name}}</td>
+                                                <td><a href="admin/topic/edit/{{$topic->id}}"><img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a onclick="myFunction('{{$topic->id}}')" style="cursor: pointer;"><img src="https://cdn2.iconfinder.com/data/icons/basic-ui-elements-plain/448/010_trash-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                              

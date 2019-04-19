@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li class="active">
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -107,10 +107,10 @@
             <div class="container-fluid">
                 <div class="card">
                             <div class="header">
-                                <h4 class="title">Chủ Đề Mới</h4>
+                                <h4 class="title">Thể loại Mới</h4>
                             </div>
                             <div class="content">
-                                <form action="admin/topic/add" method="post">
+                                <form action="admin/topic/add" method="post" autocomplete="off">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                                     <div class="form-group">
@@ -126,18 +126,8 @@
                                         @endif
                                         <div class="row"> 
                                                 <div class="col-xs-4 col-md-4">
-                                                    Môn thi
-                                                    <select class="form-control border-input" name="subject">
-                                                         
-                                                    </select> 
-                                                </div> 
-                                            </div>
-                                        <div class="row"> 
-                                                <div class="col-xs-4 col-md-4">
-                                                     <div>
-                                                         Chủ đề 
-                                                      </div> 
-                                                      <input class="form-control border-input" type="text" name="topic" value="" placeholder="Chủ đề mới" size="42px" required="">
+                                                    <label>Tên thể loại</label>
+                                                   <input class="form-control border-input" type="text" name="name" required="">
                                                 </div> 
                                             </div>
                                     <div class="text-center">

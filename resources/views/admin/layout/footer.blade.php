@@ -4,24 +4,24 @@
                     <ul>
 
                         <li>
-                            <a href="">
-                                Trac Nghiem
+                            <a>
+                                Nhaccuachungtui.vn
                             </a>
                         </li>
                         <li>
-                            <a href="">
-                               Liên Hệ
+                            <a>
+                               Liên Hệ: 0972053783
                             </a>
                         </li>
                         <li>
-                            <a href="">
-                                Phiên Bản
+                            <a>
+                                Phiên Bản 1.1
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made <i class="fa fa-heart heart"></i> by <a href="">Nhom2</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made <i class="fa fa-heart heart"></i> by <a>Nhóm 6</a>
                 </div>
             </div>
         </footer>

@@ -55,7 +55,7 @@
 		<!-- header-starts -->
 		<div class="header-section ">
 			<div class="menu-righ">
-				<div class="row">
+				<div class="row" style="height:64px">
 					<div class="col-md-2 col-sm-2 col-xs-2">												
 						<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
 					</div>
@@ -285,7 +285,7 @@
 							<div class="jp-playlist">
 								<ul style="display: block;">
 									<h1>Bảng Xếp Hạng Bài Hát</h1>
-									<li class="jp-playlist-current">
+									<li>
 										<div>
 											<a href="" class="jp-playlist-item jp-playlist-current" tabindex="0">1. {{$mostViewMusics[0]->name}}</a>
 										</div>
@@ -342,7 +342,7 @@
 										<h1>Bảng Xếp Hạng Album</h1>
 										<li class="jp-playlist-current">
 										<div>
-											<a href="" class="jp-playlist-item jp-playlist-current" tabindex="0">1. {{$mostViewAlbums[0]->name}}</a>
+											<a href="" class="jp-playlist-item" tabindex="0">1. {{$mostViewAlbums[0]->name}}</a>
 										</div>
 									</li>
 									<li>

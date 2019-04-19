@@ -8,12 +8,14 @@ class Album extends Model
 {
     public $timestamps=true;
 
-    static public function addAlbum($name, $title, $image){
+    static public function addAlbum($id, $name, $title, $image, $status=0){
         $album= new Album;
+        $album->id=$id;
         $album->name= $name;
         $album->title= $title;
         $album->views=0;
         $album->image= $image;
+        $album->status= $status;
         $album->save();
     }
 
@@ -25,5 +27,9 @@ class Album extends Model
     static public function getNewAlbums(){
         $newAlbums= Album::orderBy('id','desc')->limit(7)->get();
         return $newAlbums;
+    }
+
+    public function album_singer(){
+        return $this->hasMany(Album_singer::class,"id_album","id");
     }
 }

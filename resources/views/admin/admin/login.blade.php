@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Đăng Nhập</title>
+
+	<title>Đăng nhập</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<base href="{{asset('')}}">
@@ -24,8 +25,8 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/util.css">
+	<link rel="stylesheet" type="text/css" href="css/admin/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -33,30 +34,43 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" role="form" action="admin/login" method="post">
+				<form class="login100-form validate-form" method="post" action="admin/login" autocomplete="off">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						ĐĂNG NHẬP
+						Đăng nhập
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Tài Khoản">
+						<input class="input100" type="text" name="username" placeholder="Tên đăng nhập">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Mật Khẩu">
+						<input class="input100" type="password" name="password" placeholder="Mật khẩu">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember_me">
+						<label class="label-checkbox100" for="ckb1">
+							Nhớ mật khẩu
+						</label>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
-							Đăng Nhập
+							Đăng nhập
 						</button>
+					</div>
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Quên mật khẩu?
+						</a>
 					</div>
 				</form>
 			</div>

@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user" class="active">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li class="active" id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px" >
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -131,7 +131,24 @@
                                         <th>Xóa</th>
                                     </thead>
                                     <tbody id="body">
-                                        
+                                        @foreach($songs as $song)
+                                            <tr>
+                                                <td>{{$song->id}}</td>
+                                                <td>{{$song->uploader}}</td>
+                                                <td>{{$song->name}}</td>
+                                                <td>@for($i=0;$i<count($song->music_singer);$i++)
+                                                    @if($i==0) {{$song->music_singer[$i]->singer->name}}
+                                                    @else {{", "}}{{$song->music_singer[$i]->singer->name}}
+                                                    @endif
+                                                @endfor</td>
+                                                <td>{{$song->album->name}}</td>
+                                                <td>{{$song->views}}</td>
+                                                <td>{{$song->musician}}</td>
+                                                <td>{{$song->created_at->format('d-m-Y')}}</td>
+                                                <td><a href="admin/song/edit/{{$song->id}}"><img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a onclick="myFunction('{{$song->id}}')" style="cursor: pointer;"><img src="https://cdn2.iconfinder.com/data/icons/basic-ui-elements-plain/448/010_trash-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -172,7 +189,7 @@
     <script>
         function myFunction(str){
             if (confirm('Bạn có chắc chắn muốn xóa?')){
-                window.location.href="admin/user/delete/"+str;
+                window.location.href="admin/song/delete/"+str;
             }
         }
     </script>

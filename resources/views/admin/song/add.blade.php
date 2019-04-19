@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user" class="active">
-                        <a  href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a  href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li>
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -107,42 +107,68 @@
             <div class="container-fluid">
                 <div class="card">
                             <div class="header">
-                                <h4 class="title">Thí Sinh Mới</h4>
+                                <h4 class="title">Bài Hát Mới</h4>
                             </div>
                             
                             <div class="content">
-                                @if(count($errors)>0)
-                                    @foreach($errors->all() as $err)
-                                    <div class="alert alert-danger" style="width:30%">
-                                     {{$err}}
-                                    </div>
-                                    @endforeach
-                                @endif
-                                @if(session('loi'))
-                                    <div class="alert alert-danger" style="width:30%">
-                                     {{session('loi')}}
-                                    </div>
-                                @endif
-                                @if(session('thongbao'))
-                                    <div class="alert alert-success" style="width:30%">
-                                     {{session('thongbao')}}
-                                    </div>
-                                @endif
-                                <form action="admin/user/add" method="post" enctype="multipart/form-data">
+                                
+                                <form action="admin/song/add" method="post" enctype="multipart/form-data" autocomplete="off">
+                                    @if(count($errors)>0)
+                                        <div class="alert alert-danger" style="width: 30%">
+                                           @foreach($errors->all() as $value)
+                                                <p>{{$value}}</p>
+                                           @endforeach
+                                        </div>
+                                    @endif
+                                    @if(session('thongbao'))
+                                        <div class="alert alert-success" style="width: 30%">
+                                            Thêm thành công
+                                        </div>
+                                    @endif
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group">
+                                            <div class="form-group" >
                                                 <label>Tên bài hát</label>
                                                 <input type="text" class="form-control border-input" name="name" autofocus="" placeholder="Tên bài hát" required="">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
+                                        <div class="col-md-8">
+                                            <div class="form-group" >
                                                 <label>Ca Sĩ</label>
-                                                <input  type="text" class="form-control border-input" name="singer" id="singer" required="">
+                                                <div  class="form-control" style="border:1px solid #CCC5B9">
+                                                    <input type="text" class="border-input" id="singer"  onkeyup="showResult()" style="border: none;background-color: #fffcf5">                                                    
+                                                </div>
+                                                <div id="result" >
+                                                    
+                                                </div>
                                             </div>
                                         </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Album</label>
+                                                <select class="form-control border-input" name="album" id="album">
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group" >
+                                                <label>Thể loại</label>
+                                                <div  class="form-control" style="border:1px solid #CCC5B9">
+                                                    <input type="text" class="border-input" id="topic"  onkeyup="showTopic()" style="border: none;background-color: #fffcf5">                                                    
+                                                </div>
+                                                <div id="resultTopic" >
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Sáng tác</label>
@@ -150,22 +176,26 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Tải bài hát</label><!--Tên ADMIN-->
-                                                <input type="file" name="file">
+                                                <label>Tải bài hát</label>
+                                                <input type="file" name="song">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Tải ảnh</label> <!--Email-->
-                                                <input type="file" name="file">
+                                                <label>Tải ảnh</label>
+                                                <input type="file" name="image">
                                             </div>
                                         </div>
                                     </div>
-                                     
+                                     <div style="display: none" id="singera">
+                                         
+                                     </div>
+                                     <div style="display: none" id="topica">
+                                         
+                                     </div>
                                     <div class="form-group" >
                                             <div class="row"> 
                                                 <div class="col-xs-12 col-md-12">
@@ -173,7 +203,7 @@
                                                         <label>Lời bài hát</label>
                                                     </div>
                                                     <div>
-                                                        <textarea name="comment" rows='10' cols='160'></textarea >
+                                                        <textarea id="demo" class="ckeditor" name="lyric" rows='10' cols='160'></textarea >
                                                     </div>
                                                 </div> 
                                             </div>
@@ -189,48 +219,105 @@
         </div>
 @endsection
 @section('script')
-    <script>       
-        $(document).ready(function(){
-        	$.get("admin/ajax/gettopic?str="+$('#subject1').val(),function(data){
-                $('#topic1').html(data);
-                $.get("admin/ajax/getexam?str="+$('#topic1').val(),function(data){
-                    $('#exam').html(data);
-                });
-            });
+<script type="text/javascript" language="javascript" src="ckeditor/ckeditor.js" ></script>
+    <script>  
+        var ind=1;
+        var arr=[];
+        function showResult(){
+            str=$("#singer").val();
+            if(str.length>0){
+                $.get("admin/ajax/search/"+str+"/"+JSON.stringify(arr),function(data){
+                    $("#result").html(data);
+                    $("#result").css("border","1px solid #CCC5B9");
+                    $("#result").css("border-radius","4px");
+                    $("#result").css("border-top","none");
+                    $(".result").css("margin-bottom","0px");
+                    $(".result").mouseover(function(){
+                        $(this).css("background-color","#DDDDDD");
+                        $(this).css("cursor","pointer");
+                    });
+                    $(".result").mouseout(function(){
+                        $(this).css("background-color","white");
+                        $(this).css("cursor","auto");
+                    });
 
-            $('#subject1').change(function(){
-                $.get("admin/ajax/gettopic?str="+$('#subject1').val(),function(data){
-                    $('#topic1').html(data);
-                    $.get("admin/ajax/getexam?str="+$('#topic1').val(),function(data){
-                    $('#exam').html(data);
+                    $(".result").click(function(){
+                        arr.push($(this).html());                      
+                        $("#singera").append('<input id="singer'+ind+'" type="checkbox" name="singer[]" checked value="'+$(this).html()+'">');
+                        $("#singer").before("<span style='background-color:#DDDDDD;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
+                        ind++;
+                        $("#singer").val("");
+                        $(".result").html("");
+                    });
                 });
-                });
-            });
+            }    
+            else{
+                $("#result").html("");
+            }        
+        }   
 
-            $('#topic1').change(function(){
-                $.get("admin/ajax/getexam?str="+$('#topic1').val(),function(data){
-                    $('#exam').html(data);
-                });
-            });
-            $.get("admin/ajax/getdate?str="+$('#month').val()+"&str1="+$('#year').val(),function(data){
-                    $('#date').html(data);
-                });
+    </script>
+    <script>  
+        var ind1=1;
+        var arr1=[];
+        function showTopic(){
+            str=$("#topic").val();
+            if(str.length>0){
+                $.get("admin/ajax/searchTopic/"+str+"/"+JSON.stringify(arr1),function(data){
+                    $("#resultTopic").html(data);
+                    $("#resultTopic").css("border","1px solid #CCC5B9");
+                    $("#resultTopic").css("border-radius","4px");
+                    $("#resultTopic").css("border-top","none");
+                    $(".resultTopic").css("margin-bottom","0px");
+                    $(".resultTopic").mouseover(function(){
+                        $(this).css("background-color","#DDDDDD");
+                        $(this).css("cursor","pointer");
+                    });
+                    $(".resultTopic").mouseout(function(){
+                        $(this).css("background-color","white");
+                        $(this).css("cursor","auto");
+                    });
 
-            $('#year').change(function(){
-                $.get("admin/ajax/getdate?str="+$('#month').val()+"&str1="+$('#year').val(),function(data){
-                    $('#date').html(data);
+                    $(".resultTopic").click(function(){
+                        arr.push($(this).html());                      
+                        $("#topica").append('<input id="topic'+ind1+'" type="checkbox" name="topic[]" checked value="'+$(this).html()+'">');
+                        $("#topic").before("<span style='background-color:#DDDDDD;border-radius:2px' id='a"+ind1+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete2("+ind1+")'></i></span>");
+                        ind++;
+                        $("#topic").val("");
+                        $(".resultTopic").html("");
+                    });
                 });
-            });
-            $('#month').change(function(){
-                $.get("admin/ajax/getdate?str="+$('#month').val()+"&str1="+$('#year').val(),function(data){
-                    $('#date').html(data);
-                });
-            });
-        });
+            }    
+            else{
+                $("#resultTopic").html("");
+            }        
+        }   
+
     </script>
     <script>
+        function delete1(a){
+            a=a.toString();
+            var x=$("#"+a).html();
+            x=x.substr(0,x.length-55-a.length);
+            arr.splice(arr.indexOf(x),1);
+            $("#"+a).remove();
+            $("#singer"+a).remove();
+        }
+
+        function delete2(a){
+            a=a.toString();
+            var x=$("#a"+a).html();
+            x=x.substr(0,x.length-55-a.length);
+            arr1.splice(arr1.indexOf(x),1);
+            $("#a"+a).remove();
+            $("#topic"+a).remove();
+        }
+
+        $.get("admin/ajax/album",function(data){
+            $("#album").html(data);
+        });
         $(document).ready(function(){
-            $('title').html("Thêm Thí Sinh");
+            $('title').html("Thêm bài hát");
             $('#password1').val($('#password').val());
         });
     </script>

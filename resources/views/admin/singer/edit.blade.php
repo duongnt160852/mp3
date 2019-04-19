@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li id="user">
-                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
+                        <a href="#subUser" data-toggle="collapse" class="collapsed"><i class="ti-music"></i> <p>QUẢN LÝ BÀI HÁT </p></a>
                         <div id="subUser" class="collapse">
                             <ul class="nav">
                                 <li id="userList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -45,7 +45,7 @@
                         </div>
                     </li>  
                     <li class="active">
-                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ CA SĨ</p></a>
+                        <a href="#subQuestion" data-toggle="collapse" class="collapsed"><i class="ti-user"></i> <p>QUẢN LÝ CA SĨ</p></a>
                         <div id="subQuestion" class="collapse ">
                             <ul class="nav">
                                 <li id="questionList" style="margin: 0px;position: relative;left: 47px;width: 212px" class="active">
@@ -62,7 +62,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ ALBUM</p></a>
+                        <a href="#subSubject" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ ALBUM</p></a>
                         <div id="subSubject" class="collapse ">
                             <ul class="nav">
                                 <li id="subjectList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -79,7 +79,7 @@
                         </div>
                     </li> 
                     <li>
-                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-book"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
+                        <a href="#subTopic" data-toggle="collapse" class="collapsed"><i class="ti-gallery"></i> <p>QUẢN LÝ THỂ LOẠI</p></a>
                         <div id="subTopic" class="collapse ">
                             <ul class="nav">
                                 <li id="topicList" style="margin: 0px;position: relative;left: 47px;width: 212px">
@@ -105,7 +105,7 @@
 @section('content')
 <div class="content">
             <div class="container-fluid">
-                <form action="admin/question/edit/{{$question->id}}" method="post">
+                <form action="admin/singer/edit/{{$singer->id}}" method="post">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group">
                                         @if(count($errors)>0)
@@ -121,82 +121,11 @@
                                         <div class="row"> 
                                                 <div class="col-xs-4 col-md-4">
                                                     <div>
-                                                       <label>Độ khó</label>
+                                                       <label>Tên ca sĩ</label>
                                                     </div>
-                                                    <select class="form-control" name="level">
-                                                        
-                                                    </select> 
+                                                    <input class="form-control border-input" type="text" name="name" value="{{$singer->name}}" required="">
                                                 </div> 
                                             </div>
-                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Câu Hỏi</label>
-                                                <textarea name="question" rows='5' cols='160' id="demo" class="ckeditor" required=""></textarea >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Đáp Án A</label>
-                                                <textarea name="A" rows='5' cols='160' id="demo" class="ckeditor" required=""></textarea >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Đáp Án B</label>
-                                                <textarea name="B" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Đáp Án C</label>
-                                                <textarea name="C" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Đáp Án D</label>
-                                                <textarea name="D" rows='5' cols='160' id="demo" class="ckeditor" required=""> </textarea >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row"> 
-                                                   <div class="col-xs-6 col-md-6">
-                                                    <label>Đáp Án Đúng</label>
-                                                    <div class="form-group">
-                                                    
-                                                    <div class="col-sm-2">
-                                                        A <input type="radio" name="answer" value="A" required="" > 
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        B <input type="radio" name="answer" value="B" required=""  > 
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        C <input type="radio" name="answer" value="C" required=""  > 
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        D <input type="radio" name="answer" value="D" required="" >  
-                                                    </div>
-                                                  </div><!--dap an -->
-                                                </div> 
-                                        </div>
-                                        <div class="row"> 
-                                                   <div class="col-xs-12 col-md-12">
-                                                    <label>Giải thích</label>
-                                                    <div>
-                                                        <textarea name="comment" rows='5' cols='160' id="demo" class="ckeditor"> </textarea >
-                                                    </div>
-                                                </div> 
-                                        </div>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Sửa</button>
