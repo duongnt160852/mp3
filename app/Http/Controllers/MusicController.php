@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 use App\Music;
+use App\User;
 use App\Singer;
-use Aapp\Album;
+use App\Album;
+use App\PlaylistMusic;
+use Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as Auth;
+
 
 class MusicController extends Controller
 {
 
     function getSong(Request $request){
-        $song=Music::where("title",$request->title)->get()[0];
-        if(!session($song->title)){
-            $song->views+=1;
-            $song->save();
-            session([$song->title => "1"]);
+        if (Auth::check()) {
+            $user=User::find(Auth::user()->id);
+            $id=$user->id;
         }
-        return view("user/song",["song"=>$song]);
+        else {
+            $user=null;
+            $id=null;
+        }
+        $song=Music::where("title",$request->title)->get()[0];
+        $mostViewMusics=Music::getMostViewMusics();
+        return view("user/song",["song"=>$song,"mostViewMusics"=>$mostViewMusics,"user"=>$user,"id"=>$id]);
+    }
+
+    function getListSong(){
+        $user=Auth::user();
+        $newMusics=Music::getNewMusics(24);
+        $mostViewMusics=Music::getMostViewMusics(12);
+        return view("user/listSong",["newMusics"=>$newMusics,"mostViewMusics"=>$mostViewMusics,"user"=>$user]);
     }
 
     function addMusic(){
@@ -28,5 +44,10 @@ class MusicController extends Controller
         $image="hkt.jpg";
         $id_album="1";
         Music::addMusic($uploader, $name, $title, $link, $musician, $image, $id_album);
+    }
+
+    public function getDownload(){
+        $playlistsong=PlaylistMusic::where([["id_playlist","1"],["id_music","1"]])->get()->first();
+        dd($playlistsong);
     }
 }

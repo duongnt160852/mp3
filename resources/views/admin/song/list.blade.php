@@ -184,7 +184,7 @@
         } );
     </script>
     <script>
-    $("title").html("Danh sách thí sinh");
+    $("title").html("Danh sách bài hát");
     </script>
     <script>
         function myFunction(str){

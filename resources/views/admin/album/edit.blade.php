@@ -227,7 +227,7 @@
             $("#singer"+a).remove();
         }
     $(document).ready(function(){
-        $("title").html("Sửa môn thi");
+        $("title").html("Sửa album");
     });
     </script>
 @endsection

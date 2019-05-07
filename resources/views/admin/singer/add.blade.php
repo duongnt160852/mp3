@@ -110,7 +110,7 @@
                                 <h4 class="title">Ca sĩ mới</h4>
                             </div>
                             <div class="content">
-                                <form action="admin/singer/add" method="post" autocomplete="off">
+                                <form action="admin/singer/add" method="post" autocomplete="off" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group">
                                         @if(count($errors)>0)
@@ -130,6 +130,15 @@
                                                     </div>
                                                     <input type="text" required="" name="singer" class="form-control border-input" >
                                                 </div> 
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Tải ảnh</label>
+                                                        <input type="file" name="image">
+                                                    </div>
+                                                </div>
                                             </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Thêm</button>
@@ -145,7 +154,7 @@
 @section('script')
     <script>
         $('#questionAdd').addClass("active");
-        $("title").html("Thêm câu hỏi");
+        $("title").html("Thêm ca sĩ");
     </script>
     <script>
         $(document).ready(function(){

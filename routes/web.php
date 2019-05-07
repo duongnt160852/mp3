@@ -12,33 +12,43 @@
 */
 Auth::routes(['register' => false]);
 
-Route::get("playlist",function(){
-	return view("user/playlist");
-});
+Route::get("ajax/search/{str}","UserController@search");
 
-Route::get("search",function(){
-	return view("user/search");
-});
+Route::get("download","MusicController@getDownload");
 
-Route::get('/', "UserController@getHome");
+Route::post("user/login","LoginController@postLogin")->name("userlogin");
+
+Route::get("search/{str}","UserController@getSearch");
+
+Route::get("search/bai-hat/{str}","UserController@searchSong");
+
+Route::get("search/ca-si/{str}","UserController@searchSinger");
+
+Route::get("search/album/{str}","UserController@searchAlbum");
+
+Route::post("search","UserController@postSearch");
+
+Route::post("signup","LoginController@signup");
+
+Route::get("ajax/songview/{id}/{duration}","AlbumController@ajaxSong");
+
+Route::get("ajax/album/{id}","UserController@getAlbum");
+
+Route::get('/', "UserController@getHome")->name("gethome");
 
 Route::get('admin/login',"LoginController@getLoginAdmin")->name("login");
 
 Route::post('admin/login',"LoginController@postLoginAdmin");
 
-Route::get('bai-hat', function () {
-    return view('user/listSong');
-});
+Route::get('bai-hat', "MusicController@getListSong");
 
 Route::get("bai-hat/{title}","MusicController@getSong")->name("bai-hat");
 
-Route::get('album', function () {
-    return view('user/album');
-});
+Route::get('album', "AlbumController@getListAlbum");
 
-Route::get('nghe-si', function () {
-    return view('user/singer');
-});
+Route::get("album/{title}","AlbumController@getAlbum");
+
+Route::get('nghe-si', "UserController@listSinger");
 
 Route::get('audio',function(){
 	return view('user/audio');
@@ -51,10 +61,22 @@ Route::get('addAlbum','AlbumController@addAlbum');
 Route::get('addSinger','SingerController@addSinger');
 Route::post('login','UserController@postLogin');
 
-Route::get('ajax/login/{username}/{password}',"UserController@ajaxLogin");
+Route::post('ajax/login',"LoginController@ajaxLogin");
 
-Route::group(['prefix'=>'user'],function(){
-    Route::get('insert','UserController@insertUser');
+Route::group(["middleware"=>"auth"],function(){
+	Route::get("playlist","UserController@getPlaylist");
+
+	Route::post("changePass","UserController@changePass");
+
+	Route::get("playlist/{id}","UserController@playlist");
+
+	Route::get("ajax/createPlaylist/{playlist}/{song}","UserController@ajaxCreatePLaylist");
+
+	Route::get("ajax/playlist/{id}/{song}","UserController@ajaxPlaylist");
+
+	Route::get("ajax/getPlaylist/{id}","UserController@ajaxGetPlaylist");
+
+	Route::get("user/logout","LoginController@logout");
 });
 
 Route::group(["prefix"=>"admin", "middleware"=>"auth:admin"],function(){

@@ -12,13 +12,13 @@ class Music extends Model
 
     public $timestamps=true;
 
-    static public function getNewMusics(){
-        $newMusics= Music::orderBy('id','desc')->limit(8)->get();
+    static public function getNewMusics($num=8){
+        $newMusics= Music::orderBy('id','desc')->limit($num)->get();
         return $newMusics;
     }
 
-    static public function getMostViewMusics(){
-        $mostViewMusics= Music::orderBy('views','desc')->limit(10)->get();
+    static public function getMostViewMusics($num=10){
+        $mostViewMusics= Music::orderBy('views','desc')->limit($num)->get();
         return $mostViewMusics;
     }
 

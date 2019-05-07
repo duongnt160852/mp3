@@ -143,7 +143,7 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $("title").html('Thêm Chủ Đề');
+            $("title").html('Thêm thể loại');
         });
     </script>
 @endsection

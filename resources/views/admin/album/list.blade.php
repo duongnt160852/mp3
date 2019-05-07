@@ -156,7 +156,7 @@
 @endsection
 @section('script')
     <script>
-    $("title").html("Danh sách môn thi");
+    $("title").html("Danh sách album");
     </script>
     <script>
         function myFunction(str){

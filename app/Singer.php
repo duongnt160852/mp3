@@ -9,11 +9,12 @@ class Singer extends Model
     protected $table="singers";
     public $timestamps=true;
     
-    static public function addSinger($name, $title, $status=0){
+    static public function addSinger($name, $title, $status=0,$image){
         $singer= new Singer;
         $singer->name= $name;
         $singer->title= $title;
         $singer->status=$status;
+        $singer->image=$image;
         $singer->save();
     }
 

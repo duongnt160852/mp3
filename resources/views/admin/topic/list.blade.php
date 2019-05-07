@@ -155,7 +155,7 @@
 @section('script')
 	<script>
         $(document).ready(function(){
-        	$("title").html('Danh Sách Chủ Đề');
+        	$("title").html('Danh Sách Thể Loại');
         });
     </script>
         <script>

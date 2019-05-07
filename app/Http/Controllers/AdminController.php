@@ -179,15 +179,20 @@ class AdminController extends Controller
     function postAddSinger(Request $request){
         $validator=Validator::make($request->all(), 
             [
-                "singer"=>"unique:singers,name"
+                "singer"=>"unique:singers,name",
+                "image"=>"required",
             ], 
             [
                 "singer.unique"=>"Ca sĩ đã tồn tại",
+                "image.required"=>"Chưa chọn ảnh",
             ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        Singer::addSinger($request->singer,changeTitle($request->singer),1);
+        $image=$request->image;
+        $title=\changeTitle($request->singer);
+        Singer::addSinger($request->singer,changeTitle($request->singer),1,"images/".$title.".".$image->getClientOriginalExtension());
+        $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
         return redirect()->back()->with("thongbao","Thêm thành công");
     }
 

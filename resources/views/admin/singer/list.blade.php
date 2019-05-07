@@ -146,7 +146,7 @@
 @endsection
 @section('script')
     <script>
-    $("title").html("Danh sách câu hỏi");
+    $("title").html("Danh sách ca sĩ");
     </script>
     <script>
         function myFunction(str){

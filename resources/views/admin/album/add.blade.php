@@ -213,7 +213,7 @@
             $("#singer"+a).remove();
         }
     $(document).ready(function(){
-        $("title").html("Thêm môn thi");
+        $("title").html("Thêm album");
     });
     </script>
 @endsection

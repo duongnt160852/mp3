@@ -139,6 +139,6 @@
 @endsection
 @section('script')
     <script>
-    $("title").html("Sửa câu hỏi");
+    $("title").html("Sửa ca sĩ");
     </script>
 @endsection

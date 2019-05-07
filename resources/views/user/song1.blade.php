@@ -8,7 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Mosaic a Entertainment Category Flat Bootstrap Responsive Website Template | Radio :: w3layouts</title>
+	<title>Nhạc của chúng tui</title>
+	<base href="{{asset('')}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Mosaic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -16,6 +17,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+  	<link rel="stylesheet" type="text/css" href="css/audio2.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<!-- Graph CSS -->
@@ -42,628 +51,206 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="logo-icon text-center">
 				<a href="index.html">M </a>
 			</div>
-
+			<!-- /w3l-agile -->
 			<!--logo and iconic logo end-->
 			<div class="left-side-inner">
-
 				<!--sidebar nav start-->
 				<ul class="nav nav-pills nav-stacked custom-nav">
-					<li><a href=""><i class="lnr lnr-user"></i><span>Đăng nhập</span></a></li>
 					<li class="active"><a href=""><i class="lnr lnr-home"></i><span>Trang Chủ</span></a></li>
+					<li><a href=""><i class="lnr lnr-user"></i><span>Đăng nhập</span></a></li>
 					<li><a href="song"><i class="camera"></i> <span>Bài Hát</span></a></li>
 					<li><a href="artis"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
-					<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
-					<li><a href=""><i class="lnr lnr-heart"></i><span>Nhạc Cá Nhân</span></a></li>
+					<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>	
+					<li><a href=""><i class="lnr lnr-heart"></i><span>Nhạc Cá Nhân</span></a></li>      
 				</ul>
 				<!--sidebar nav end-->
 			</div>
 		</div>
-
-		
-		<!-- //signup -->
-		<!-- /w3layouts-agile -->
+		<!-- left side end-->
 		<!-- main content start-->
 		<div class="main-content">
 			<!-- header-starts -->
-			<div class="header-section ">
-				<div class="menu-righ">
-					<div class="row">
-						<div class="col-md-2 col-sm-2 col-xs-2">												
-							<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
-						</div>
-						<div class="col-md-8 col-sm-10 col-xs-10">
-							<div id="sb-search" class="sb-search">
-								<form action="#" method="post">
-									<input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"></span>
-								</form>
+			<div class="header-section">
+				<!--toggle button start-->
+				<!--toggle button end-->
+				<!--notification menu start -->
+				<div class="menu-right">
+					<div class="profile_details">		
+						<div class="row">
+							<div class="col-md-2 col-sm-2 col-xs-2">
+								<a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
 							</div>
+							<div class="col-md-8 col-sm-10 col-xs-10">
+								<div id="sb-search" class="sb-search">
+									<form action="search" method="post" autocomplete="off" id="form1">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input class="sb-search-input" placeholder="Search" type="search" name="search" id="search" onkeyup="showResult()">
+								<input class="sb-search-submit" type="submit" value="">
+								<span class="sb-icon-search"></span>
+							</form>
+								</div>
+							</div>
+							<!-- search-scripts -->
+							<script src="js/classie.js"></script>
+							<script src="js/uisearch.js"></script>
+							<script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+							</script>
 						</div>
-						<!-- search-scripts -->
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
+						<div class="clearfix"> </div>
 					</div>
+					<!-------->
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<!--notification menu end -->
 			<!-- //header-ends -->
-			<!-- /w3l-agile -->
+			<!-- /w3l-agileits -->
 			<!-- //header-ends -->
 			<div id="page-wrapper">
 				<div class="inner-content">
-					<div class="music-browse">
-						<!--albums-->
-						<!-- pop-up-box --> 
-						<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
-						<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-						<script>
-							$(document).ready(function() {
-								$('.popup-with-zoom-anim').magnificPopup({
-									type: 'inline',
-									fixedContentPos: false,
-									fixedBgPos: true,
-									overflowY: 'auto',
-									closeBtnInside: true,
-									preloader: false,
-									midClick: true,
-									removalDelay: 300,
-									mainClass: 'my-mfp-zoom-in'
-								});
-							});
-						</script>		
-						<!--//pop-up-box -->
-
-						<div class="browse">
-
-							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								<ul id="myTab" class="nav nav-tabs" role="tablist">
-									<li role="presentation" class="dropdown active">
-										<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Việt Nam <span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Trẻ</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Trữ Tình</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Remix Việt</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Tiền Chiến</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Trịnh</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Rock Việt</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Rap Việt</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Cách Mạng</a></li>
-										</ul>
-									</li>
-									<li role="presentation" class="dropdown">
-										<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Âu Mỹ<span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Pop</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Rock</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Electronica/Dance</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">R&B/Hip Hop/Rap</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Blues/Jazz</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Country</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Latin</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Indie</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Âu Mỹ Khác</a></li>
-										</ul>
-									</li>
-									<li role="presentation" class="dropdown">
-										<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Châu Á <span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Hàn</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Nhạc Hoa</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Nhật</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Nhạc Thái</a></li>
-										</ul>
-									</li>
-									<li role="presentation" class="dropdown">
-										<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Khác <span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Thiếu Nhi</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Không Lời</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Tui Hát</a></li>
-											<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Beat</a></li>
-											<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Thể Loại Khác</a></li>
-										</ul>
-									</li>
-								</ul>
-								<div id="myTabContent" class="tab-content">
-									<div class="tittle-head two">
-										<h3 class="tittle">Mới Nhất <span class="new">New</span></h3>
-										<div class="clearfix"> </div>
+					<div class="music-left">
+						<div class="frame1" >
+						<div id="player1">
+							<div class="album1">
+								<audio id="audio1"  controls="controls" style="display:none" >
+								<source src="media/Dung-Nguoi-Dung-Thoi-Diem-Thanh-Hung.mp3" type="audio/mpeg"></source>
+								</audio>
+								<!-- <div class="heart"><i class="fas fa-heart"></i></div> -->
+							</div>
+							<div class="info1">
+								<div class="currently-playing">
+										<h2 class="song-name">{{$song->name}}</h2>
+										<h3 class="artist-name">Ca sĩ: Nguyễn Tùng Dương - Sáng tác: {{$song->musician}}</h3>
 									</div>
-									<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-										<div class="browse-inner">
-											<!-- /agileits -->
-
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="clearfix"> </div>
+								<div class="progress-bar">
+									
+									<!-- <div class="fill1"> -->
+										<span class="time--current">0:00</span>
+										<div id="fill" class="fill"></div>
+										<span class="time--total"></span> 
+									<!-- </div> -->
+									
+								</div>
+								<div style="visibility:hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+								<div class="controls">
+								<!-- <div class="option"><i class="fas fa-bars"></i></div> -->
+								<div class="shuffle"><i class="fas fa-redo-alt"></i></div>
+								<div class="previous"><i class="fas fa-fast-backward"></i></div>
+								<div style="border: none" class="play togglePlay" onClick="togglePlay()"><i class="fas fa-pause"></i></div>
+								<!-- <div style="border: none" class="pause togglePlay" onClick="togglePlay()"><i class="fas fa-pause"></i></div> -->
+								<div class="next" style="margin-right:25px"><i class="fas fa-fast-forward"></i></div>
+								<div style="margin-right:10px" id="volume1"><i class="fas fa-volume-up"></i></div>
+								<div class="volume1"></div>
+								<div class="add" title="Thêm vào playlist"><i class="fas fa-plus"></i></div>
+								</div>
+							</div>
+							</div>
+							<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+							<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+							<script>
+								var link="{{$song->link}}";
+							</script>
+							<script  src="js/audio1.js"></script>
+						</div>
+						<div class="lyric">
+							<!-- <div class="info">
+								<div class="casi text-info">Ca sĩ:Trần Văn A</div>
+								<div class="tacgia text-info">Tác giả:Trần Văn B</div>
+							</div> -->
+							<u>Lời bài hát:</u>
+							<div class="content">{!! $song->lyric !!}</div>							 
+						</div>
+						<!--//End-albums-->
+					</div>
+					<!--//music-left-->
+					<!--/music-right-->
+					<div class="music-right">
+						<!--/video-main-->
+						<div class="video-main">
+							<div class="video-record-list">
+								<div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player">
+									<div class="jp-type-playlist">
+										<h2>ĐỀ XUẤT</h2>
+										<div class="jp-playlist">
+											<ul style="display: block;">
+												<li class="">
+													<div>
+														
+														<a href="">1. Ellie-Goulding</a>
+													</div>
+												</li>
+												<li>
+													<div>
+														<a href="">2. Mark-Ronson-Uptown</a>
+													</div>
+												</li>
+												<li class="">
+													<div>
+														
+														<a href="">1. Ellie-Goulding</a>
+													</div>
+												</li>
+												<li>
+													<div>
+														<a href="">2. Mark-Ronson-Uptown</a>
+													</div>
+												</li>
+												<li class="">
+													<div>
+														
+														<a href="">1. Ellie-Goulding</a>
+													</div>
+												</li>
+												<li>
+													<div>
+														<a href="">2. Mark-Ronson-Uptown</a>
+													</div>
+												</li>
+												<li class="">
+													<div>
+														
+														<a href="">1. Ellie-Goulding</a>
+													</div>
+												</li>
+												<li>
+													<div>
+														<a href="">2. Mark-Ronson-Uptown</a>
+													</div>
+												</li>
+												<li class="">
+													<div>
+														
+														<a href="">1. Ellie-Goulding</a>
+													</div>
+												</li>
+												<li>
+													<div>
+														<a href="">2. Mark-Ronson-Uptown</a>
+													</div>
+												</li>
+											</ul>
 										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-										<div class="browse-inner">
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
-										<div class="browse-inner">
-
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
-										<div class="browse-inner">
-
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-										<div class="browse-inner">
-
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-										<div class="browse-inner">
-
-
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sukhwinder singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a6.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shekhar Ravjiani</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a7.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shalmali</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a4.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sajid-Wajid</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a5.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Atif Aslam</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a1.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">A R Rahman</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a2.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Shreya Ghoshal</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a8.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Lata Mangeshkar</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a9.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Arijit Sing</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a10.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Sunidhi Chauhan</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a11.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Yo Yo Honey Singh</a>
-											</div>
-											<div class="col-md-3 artist-grid">
-												<a  href="single.html"><img src="images/a12.jpg" title="allbum-name"></a>
-												<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-												<a class="art" href="single.html">Neeti Mohan</a>
-											</div>
-											<div class="clearfix"> </div>
+										<div class="jp-no-solution" style="display: none;">
+											<span>Update Required</span>
+											To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
 										</div>
 									</div>
 								</div>
 							</div>
-							<!-- /agileinfo -->
 						</div>
-						<!--//End-albums-->
-
-						<!--//discover-view-->
-						<div class="albums fourth">
-							<div class="tittle-head two">
-								<h3 class="tittle">Nghe Nhiều Nhất <span class="new">View</span></h3>
-								<a href="browse.html"><h4 class="tittle third">See all</h4></a>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v11.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v22.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v33.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid last-grid">
-								<a href="single.html"><img src="images/v44.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v55.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v66.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v77.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid last-grid">
-								<a href="single.html"><img src="images/v88.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v99.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v9.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v21.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="col-md-3 artist-grid">
-								<a href="single.html"><img src="images/v5.jpg" title="allbum-name"></a>
-								<div class="inner-info"><h5>Pop</h5></div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+						<!-- script for play-list -->
+						<link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css">
 					</div>
-					<!--//discover-view-->
-					<!--//music-left-->
+					<!--//music-right-->
+					<div class="clearfix"></div>
+					<!-- /w3l-agile-its -->
 				</div>
 				<!--body wrapper start-->
-				
+
 				<div class="review-slider">
 					<div class="tittle-head">
-						<h3 class="tittle">Album Nổi Bật <span class="new"> New</span></h3>
+						<h3 class="tittle">Featured Albums <span class="new"> New</span></h3>
 						<div class="clearfix"> </div>
 					</div>
 					<ul id="flexiselDemo1">
@@ -740,7 +327,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</ul>
 						<script type="text/javascript">
 							$(window).load(function() {
-
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 5,
 									animationSpeed: 1000,
@@ -770,10 +356,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="clearfix"></div>
 				<!--body wrapper end-->
-				<!-- /w3layouts-agile -->
+				<!-- /w3l-agile -->
 			</div>
 			<!--body wrapper end-->
-			<div class="footer two">
+			<div class="footer">
 				<div class="footer-grid">
 					<h3>Navigation</h3>
 					<ul class="list1">
@@ -833,10 +419,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<p>&copy 2016 Mosaic. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>
 		</footer>
 		<!--footer section end-->
-		<!-- /w3layouts-agile -->
+		<!-- /w3l-agile -->
 		<!-- main content end-->
 	</section>
-	<!-- /wthree-agile -->
+
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
 	<!-- Bootstrap Core JavaScript -->

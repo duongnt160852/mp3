@@ -19,17 +19,21 @@ class Album extends Model
         $album->save();
     }
 
-    static public function getMostViewAlbums(){
-        $mostViewAlbums= Album::orderBy('views','desc')->limit(10)->get();
+    static public function getMostViewAlbums($num=10){
+        $mostViewAlbums= Album::orderBy('views','desc')->limit($num)->get();
         return $mostViewAlbums;
     }
 
-    static public function getNewAlbums(){
-        $newAlbums= Album::orderBy('id','desc')->limit(7)->get();
+    static public function getNewAlbums($num=7){
+        $newAlbums= Album::orderBy('id','desc')->limit($num)->get();
         return $newAlbums;
     }
 
     public function album_singer(){
         return $this->hasMany(Album_singer::class,"id_album","id");
+    }
+
+    public function albumMusic(){
+        return $this->hasMany(Music::class,"id_album","id");
     }
 }
