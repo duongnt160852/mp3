@@ -12,7 +12,7 @@ class Music extends Model
 
     public $timestamps=true;
 
-    static public function getNewMusics($num=8){
+    static public function getNewMusics($num=12){
         $newMusics= Music::orderBy('id','desc')->limit($num)->get();
         return $newMusics;
     }

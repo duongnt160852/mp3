@@ -24,7 +24,7 @@ class Album extends Model
         return $mostViewAlbums;
     }
 
-    static public function getNewAlbums($num=7){
+    static public function getNewAlbums($num=12){
         $newAlbums= Album::orderBy('id','desc')->limit($num)->get();
         return $newAlbums;
     }

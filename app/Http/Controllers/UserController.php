@@ -252,13 +252,13 @@ class UserController extends Controller
         else $user=null;
         $newAlbums=Album::getNewAlbums(24);
         $mostViewAlbums=Album::getMostViewAlbums(12);
-        return view("user/singer",["newAlbums"=>$newAlbums,"mostViewAlbums"=>$mostViewAlbums,"user"=>$user]);
+        return view("user/listsinger",["newAlbums"=>$newAlbums,"mostViewAlbums"=>$mostViewAlbums,"user"=>$user]);
     }
 
     function getPlaylist(){
         if (Auth::check()) $user=User::find(Auth::user()->id);
         else $user=null;
-        return view("user/a",["user"=>$user]);
+        return view("user/listPlaylist",["user"=>$user]);
     }
 
     function changePass(Request $request){

@@ -44,7 +44,7 @@
 		<div class="left-side-inner">
 			<!--sidebar nav start-->
 			<ul class="nav nav-pills nav-stacked custom-nav">
-				<li class="active"><a href=""><i class="lnr lnr-home"></i><span>Trang Chủ</span></a></li>
+				<li class="active"><a href="{{Route("gethome")}}"><i class="lnr lnr-home"></i><span>Trang Chủ</span></a></li>
 				@if($user!=null)
 				<li><a href="playlist"><i class="lnr lnr-heart"></i><span>Trang Cá Nhân</span></a></li> 		
 				@endif
@@ -533,24 +533,6 @@
 						</script>		
 
 			<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
-			<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-			<script>
-				$(document).ready(function() {
-					$('.popup-with-zoom-anim').magnificPopup({
-						type: 'inline',
-						fixedContentPos: false,
-						fixedBgPos: true,
-						overflowY: 'auto',
-						closeBtnInside: true,
-						preloader: false,
-						midClick: true,
-						removalDelay: 300,
-						mainClass: 'my-mfp-zoom-in'
-					});
-				});
-			</script>		
-			<!--//pop-up-box -->
-			<!--//discover-view-->
 		</div>
 		<!--//music-left-->
 		<!--/music-right-->
@@ -563,429 +545,55 @@
 							<div class="jp-playlist">
 								<ul>
 									<h1 style="color: #2e9afe;">BẢNG XẾP HẠNG BÀI HÁT</h1>
-									<li>
+									@foreach($mostViewMusics as $song)
+										<li>
 										<div style="display: flex;padding:6px 20px 11px 20px;">
 											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[0]->title}}"><span><img src="{{$mostViewMusics[0]->image}}" width="60px" height="60px"></span></a>
+												<a href="bai-hat/{{$song->title}}"><span><img src="{{$song->image}}" width="60px" height="60px"></span></a>
 											</div>
 											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[0]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[0]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[0]->music_singer);$i++)
+												<a style="font-size:1.5em!important" href="bai-hat/{{$song->title}}" class="jp-playlist-item" tabindex="0">{{$song->name}}</a>
+												@for($i=0;$i<count($song->music_singer);$i++)
 													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[0]->music_singer[$i]->singer->name}}</a>
+													<a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
 													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[0]->music_singer[$i]->singer->name}}</a>
+													, <a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
 													@endif
 												@endfor
 												<br>
 												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[0]->views}} 
+													<i class="fas fa-headphones"></i> {{$song->views}} 
 												</div>
 											</div>
 										</div>
 									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[1]->title}}"><span><img src="{{$mostViewMusics[1]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[1]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[1]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[1]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[1]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[1]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[1]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[2]->title}}"><span><img src="{{$mostViewMusics[2]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[2]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[2]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[2]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[2]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[2]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[2]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[3]->title}}"><span><img src="{{$mostViewMusics[3]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[3]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[3]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[3]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[3]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[3]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[3]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[4]->title}}"><span><img src="{{$mostViewMusics[4]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[4]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[4]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[4]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[4]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[4]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[4]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[5]->title}}"><span><img src="{{$mostViewMusics[5]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[5]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[5]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[5]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[5]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[5]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[5]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[6]->title}}"><span><img src="{{$mostViewMusics[6]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[6]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[6]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[6]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[6]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[6]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[6]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[7]->title}}"><span><img src="{{$mostViewMusics[7]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[7]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[7]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[7]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[7]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[7]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[7]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[8]->title}}"><span><img src="{{$mostViewMusics[8]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[8]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[8]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[8]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[8]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[8]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[8]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewMusics[9]->title}}"><span><img src="{{$mostViewMusics[9]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewMusics[9]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewMusics[9]->name}}</a>
-												@for($i=0;$i<count($mostViewMusics[9]->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[9]->music_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewMusics[9]->music_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewMusics[9]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
+									@endforeach
 									</ul>
 									<ul>
 										<h1 style="color: #2e9afe;">BẢNG XẾP HẠNG ALBUM</h1>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="bai-hat/{{$mostViewAlbums[0]->title}}"><span><img src="{{$mostViewAlbums[0]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="bai-hat/{{$mostViewAlbums[0]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[0]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[0]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[0]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[0]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[0]->views}} 
+										@foreach($mostViewAlbums as $album)
+											<li>
+												<div style="display: flex;padding:6px 20px 11px 20px;">
+													<div style="margin-right: 10px">
+														<a href="bai-hat/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
+													</div>
+													<div >
+														<a style="font-size:1.5em!important" href="bai-hat/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>
+														@for($i=0;$i<count($album->album_singer);$i++)
+															@if($i==0) 
+															<a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+															@else
+															, <a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+															@endif
+														@endfor
+														<br>
+														<div>
+															<i class="fas fa-headphones"></i> {{$album->views}} 
+														</div>
+													</div>
 												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[1]->title}}"><span><img src="{{$mostViewAlbums[1]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[1]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[1]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[1]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[1]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[1]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[1]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[2]->title}}"><span><img src="{{$mostViewAlbums[2]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[2]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[2]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[2]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[2]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[2]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[2]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[3]->title}}"><span><img src="{{$mostViewAlbums[3]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[3]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[3]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[3]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[3]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[3]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[3]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[4]->title}}"><span><img src="{{$mostViewAlbums[4]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[4]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[4]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[4]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[4]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[4]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[4]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[5]->title}}"><span><img src="{{$mostViewAlbums[5]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[5]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[5]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[5]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[5]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[5]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[5]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[6]->title}}"><span><img src="{{$mostViewAlbums[6]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[6]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[6]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[6]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[6]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[6]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[6]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[7]->title}}"><span><img src="{{$mostViewAlbums[7]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[7]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[7]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[7]->album_singer);$i++)
-													@if($i==0)												
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[7]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[7]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[7]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[8]->title}}"><span><img src="{{$mostViewAlbums[8]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[8]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[8]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[8]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[8]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[8]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[8]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div style="display: flex;padding:6px 20px 11px 20px;">
-											<div style="margin-right: 10px">
-												<a href="album/{{$mostViewAlbums[9]->title}}"><span><img src="{{$mostViewAlbums[9]->image}}" width="60px" height="60px"></span></a>
-											</div>
-											<div >
-												<a style="font-size:1.5em!important" href="album/{{$mostViewAlbums[9]->title}}" class="jp-playlist-item" tabindex="0">{{$mostViewAlbums[9]->name}}</a>
-												@for($i=0;$i<count($mostViewAlbums[9]->album_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[9]->album_singer[$i]->singer->name}}</a>
-													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$mostViewAlbums[9]->album_singer[$i]->singer->name}}</a>
-													@endif
-												@endfor
-												<br>
-												<div>
-													<i class="fas fa-headphones"></i> {{$mostViewAlbums[9]->views}} 
-												</div>
-											</div>
-										</div>
-									</li>
+											</li>
+										@endforeach
 										</ul>
 									</div>
 								</div>
@@ -994,38 +602,18 @@
 					</div>
 					<!-- script for play-list -->
 					<link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css">
-					<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
-					<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
-
-					<!-- //script for play-list -->
-
-					<!--//video-main-->
-
-					<!--/start-paricing-tables-->
 				</div>
 
 				<!--//music-right-->
 				<div class="clearfix"></div>
 				<!-- /w3l-agile-its -->
 			</div>
-			<!--body wrapper start-->
-
-			
-			<!--body wrapper end-->
-			<!-- /w3l-agile -->
 		</div>
 		<!--body wrapper end-->
 		
 	</div>
-	
-	<!--footer section end-->
-	<!-- /w3l-agile -->
-	<!-- main content end-->
-
-
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
-	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js"></script>
 </body>
 </html>

@@ -1,10 +1,3 @@
-<!--
-Author: W3layouts
-Au
-thor URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,13 +40,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="left-side-inner">
 			<!--sidebar nav start-->
 			<ul class="nav nav-pills nav-stacked custom-nav">
-				<li class="active"><a href=""><i class="lnr lnr-home"></i><span>Trang Chủ</span></a></li>
+				<li ><a href="{{Route("gethome")}}"><i class="lnr lnr-home"></i><span>Trang Chủ</span></a></li>
 				@if($user!=null)
 				<li><a href="playlist"><i class="lnr lnr-heart"></i><span>Trang Cá Nhân</span></a></li> 		
 				@endif
 				<li><a href="bai-hat"><i class="camera"></i> <span>Bài Hát</span></a></li>
 				<li><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
-				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
+				<li class="active"><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
@@ -208,31 +201,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					@if($user==null)
 					<div class="col-md-2 col-sm-2 col-xs-2 login-pop">
 						<div id="loginpop"> <a href="#" id="loginButton"><span style="font-size: 0.7em!important">Đăng nhập <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a><a class="top-sign" href="#" data-toggle="modal" data-target="#myModal5"><i class="fa fa-sign-in"></i></a>
-									<div id="loginBox">  
+						<div id="loginBox">  
 							<form method="post" action="user/login" autocomplete="off" id="loginForm">
 								<input type="hidden" name="_token" value="{{csrf_token()}}">
-												<fieldset id="body">
-													<fieldset style="display:none" id="none">
-														<label style="background-color: red;color:white;padding:2px">Đăng nhập thất bại</label>
-													</fieldset>
-													<fieldset>
-														  <label for="email">Tên đăng nhập</label>
-														  <input type="text" name="username" id="username">
-													</fieldset>
-													<fieldset>
-															<label for="password">Mật khẩu</label>
-															<input type="password" name="password" id="password">
-													 </fieldset>
-													 
-													<input type="button" id="login" value="Đăng nhập">
-													<label for="checkbox"><input type="checkbox" id="checkbox"><i>Nhớ mật khẩu?</i></label>
-
-												</fieldset>
-
-											<span><a href="#">Quên mật khẩu?</a></span>
-
-									 </form>
-								</div>
+								<fieldset id="body">
+									<fieldset style="display:none" id="none">
+										<label style="background-color: red;color:white;padding:2px">Đăng nhập thất bại</label>
+									</fieldset>
+									<fieldset>
+										  <label for="email">Tên đăng nhập</label>
+										  <input type="text" name="username" id="username">
+									</fieldset>
+									<fieldset>
+											<label for="password">Mật khẩu</label>
+											<input type="password" name="password" id="password">
+									 </fieldset>									 
+									<input type="button" id="login" value="Đăng nhập">
+									<label for="checkbox"><input type="checkbox" id="checkbox"><i>Nhớ mật khẩu?</i></label>
+								</fieldset>
+							<span><a href="#">Quên mật khẩu?</a></span>
+					 </form>
+						</div>
 						</div>
 
 					
@@ -302,76 +291,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			      <div class="music-browse">
 				<!--albums-->
 				<!-- pop-up-box --> 
-						<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">
-						<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-						 <script>
-								$(document).ready(function() {
-								$('.popup-with-zoom-anim').magnificPopup({
-									type: 'inline',
-									fixedContentPos: false,
-									fixedBgPos: true,
-									overflowY: 'auto',
-									closeBtnInside: true,
-									preloader: false,
-									midClick: true,
-									removalDelay: 300,
-									mainClass: 'my-mfp-zoom-in'
-								});
-								});
-						</script>		
+						<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all">	
 				<!--//pop-up-box -->
 				
 					<div class="browse">
 							
 							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-							  <ul id="myTab" class="nav nav-tabs" role="tablist">
-							   <li role="presentation" class="dropdown active">
-								 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Việt Nam <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Trẻ</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Trữ Tình</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Remix Việt</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Tiền Chiến</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Trịnh</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Rock Việt</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Rap Việt</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Cách Mạng</a></li>
-									</ul>
-							   </li>
-							   <li role="presentation" class="dropdown">
-								 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Âu Mỹ<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Pop</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Rock</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Electronica/Dance</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">R&B/Hip Hop/Rap</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Blues/Jazz</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Country</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Latin</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Indie</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Âu Mỹ Khác</a></li>
-									</ul>
-							   </li>
-							   <li role="presentation" class="dropdown">
-								 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Châu Á <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Hàn</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Nhạc Hoa</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Nhạc Nhật</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Nhạc Thái</a></li>
-									</ul>
-							   </li>
-							   <li role="presentation" class="dropdown">
-								 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Khác <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Thiếu Nhi</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Không Lời</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Tui Hát</a></li>
-									  <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Beat</a></li>
-									  <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Thể Loại Khác</a></li>
-									</ul>
-							   </li>
-							</ul>
+							  
 							<div id="myTabContent" class="tab-content">
 								<div class="tittle-head two">
 								<h3 class="tittle">Mới Nhất <span class="new">New</span></h3>
@@ -417,52 +343,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<!--//discover-view-->
 						<!--//music-left-->
 						</div>
-					<!--body wrapper start-->
-						<script type="text/javascript">
-					$(window).load(function() {
-						
-					  $("#flexiselDemo1").flexisel({
-							visibleItems: 5,
-							animationSpeed: 1000,
-							autoPlay: true,
-							autoPlaySpeed: 3000,    		
-							pauseOnHover: false,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 2
-								}, 
-								landscape: { 
-									changePoint:640,
-									visibleItems: 3
-								},
-								tablet: { 
-									changePoint:800,
-									visibleItems: 4
-								}
-							}
-						});
-						});
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>	
 					</div>
 							</div>
 						<div class="clearfix"></div>
-					<!--body wrapper end-->
-					<!-- /w3layouts-agile -->
 				</div>
-		  <!--body wrapper end-->
 				 <div class="clearfix"> </div>
 			</div>
 		</div>
-    <!--footer section start-->
-
-    <!--footer section end-->
-	    <!-- /w3layouts-agile -->
-    <!-- main content end-->
 </section>
-	 <!-- /wthree-agile -->
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
