@@ -48,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="active"><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
 				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
+				 <li><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
 			</ul>
@@ -304,19 +305,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  
 							<div id="myTabContent" class="tab-content">
 								<div class="tittle-head two">
-								<h3 class="tittle">Mới Nhất <span class="new">New</span></h3>
+								<h3 class="tittle">Nghệ Sĩ</h3>
 								<div class="clearfix"> </div>
 							</div>
 							  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 								<div class="browse-inner">
 							 	 <!-- /agileits -->
-								@foreach($newAlbums as $song)
-									<div class="col-md-3 artist-grid">
-									<a  href="album/{{$song->title}}"><img src="{{$song->image}}"></a>
-									<a href="album/{{$song->title}}"><i class="glyphicon glyphicon-play-circle"></i></a>
-									<a class="art" href="album/{{$song->title}}" >{{$song->name}}</a>
-									</div>
-								@endforeach
+							 	 <?php $i=0; ?>
+							 	 <table class="table" id="table">
+                           	    	<thead style="display:none">
+                                        <th>ID</th>
+                                        <th>ID1</th>
+                                        <th>ID2</th>
+                                        <th>ID3</th>
+                                        <th>ID4</th>
+                                    </thead>
+                                    <tbody id="body">
+                                        @foreach($singers as $singer)
+                                        	@if($i % 5==0)
+												<tr >
+													<td style="border: none">
+	                                            	<div class="col-md-3">
+														<a  href="nghe-si/{{$singer->title}}"><img src="{{$singer->image}}"></a>
+														<a href="nghe-si/{{$singer->title}}" title="" style="display:block;width: 225px;text-align:center">{{$singer->name}}</a>
+													</div>
+												</td>
+                                        	@else
+												<td style="border: none">
+	                                            	<div class="col-md-3">
+														<a  href="nghe-si/{{$singer->title}}"><img src="{{$singer->image}}"></a>
+														<a href="nghe-si/{{$singer->title}}" title="" style="display:block;width: 225px;text-align:center">{{$singer->name}}</a>
+													</div>
+												</td>
+                                        	@endif
+                                            @if($i%5==4)
+												</tr>
+                                            @endif
+                                            <?php $i++ ?>
+                                        @endforeach
+                                        @if($i%5!=0)
+											@for($j=1;$j<=5-($i%5);$j++)
+												<td style="border: none;visibility: hidden;">
+													<div class="col-md-3">
+														<a  href="nghe-si/{{$singers[0]->title}}"><img src="{{$singers[0]->image}}"></a>
+														<a href="nghe-si/{{$singers[0]->title}}" title="" style="display:block;width: 225px;text-align:center">{{$singers[0]->name}}</a>
+													</div>
+												</td>
+											@endfor
+											</tr>
+                                        @endif
+                                    </tbody>
+                                </table>
 								
 									<div class="clearfix"> </div>
 									</div>
@@ -328,21 +367,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--//End-albums-->
 				
 					<!--//discover-view-->
-							<div class="albums fourth">
-									<div class="tittle-head two">
-										<h3 class="tittle">Nghe Nhiều Nhất <span class="new">View</span></h3>
-										<a href="browse.html"><h4 class="tittle third">See all</h4></a>
-										<div class="clearfix"> </div>
-									</div>
-										@foreach($mostViewAlbums as $song)
-											<div class="col-md-3 artist-grid">
-											<a  href="album/{{$song->title}}"><img src="{{$song->image}}"></a>
-											<a href="album/{{$song->title}}"><i class="glyphicon glyphicon-play-circle"></i></a>
-											<a class="art" href="album/{{$song->title}}" >{{$song->name}}</a>
-											</div>
-										@endforeach
-										<div class="clearfix"> </div>
-									</div>
 								</div>
 							<!--//discover-view-->
 						<!--//music-left-->
@@ -356,9 +380,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 </section>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+    <script>
+        $(document).ready( function () {
+            $(document).ready(function() {
+                $('#table').DataTable( {
+                    dom: 'Bfrtip',
+                    "searching": false,
+                    "pageLength": 5,
+                    "ordering": false,
+                    "info":false
+                } );
+            } );
+        } );
+    </script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.js"></script>
+
 </body>
 </html>

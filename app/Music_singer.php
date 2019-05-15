@@ -18,4 +18,8 @@ class Music_singer extends Model
     public function singer(){
     	return $this->hasOne(Singer::class,'id','id_singer');
     }
+
+    public function music(){
+        return $this->hasOne(Music::class,"id","id_music");
+    }
 }

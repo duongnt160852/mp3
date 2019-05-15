@@ -14,6 +14,7 @@ class Topic extends Model
     	$topic= new Topic;
     	$topic->name= $name;
     	$topic->title=changeTitle($name);
+        $topic->status=1;
     	$topic->save();
     }
     

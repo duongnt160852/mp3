@@ -50,6 +50,12 @@ Route::get("album/{title}","AlbumController@getAlbum");
 
 Route::get('nghe-si', "UserController@listSinger");
 
+Route::get("nghe-si/{title}","UserController@getSinger");
+
+Route::get("upload","UserController@getUpload");
+
+Route::post("postUpload","UserController@postUpload");
+
 Route::get('audio',function(){
 	return view('user/audio');
 });
@@ -79,7 +85,7 @@ Route::group(["middleware"=>"auth"],function(){
 	Route::get("user/logout","LoginController@logout");
 });
 
-Route::group(["prefix"=>"admin", "middleware"=>"auth:admin"],function(){
+Route::group(["prefix"=>"admin", "middleware"=>"admin"],function(){
 	Route::group(["prefix"=>"singer"],function(){
 		Route::get("list","AdminController@getListSinger");
 		Route::get("add","AdminController@getAddSinger");
@@ -95,6 +101,8 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth:admin"],function(){
 		Route::get("edit/{id}","AdminController@getEditSong");
 		Route::post("edit/{id}","AdminController@postEditSong");
 		Route::get("delete/{id}","AdminController@deleteSong");
+		Route::get("approve","AdminController@getApprove");
+		Route::get("approve/{id}","AdminController@approve");
 	});
 	Route::group(["prefix"=>"album"],function(){
 		Route::get("list","AdminController@getListAlbum");

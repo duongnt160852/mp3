@@ -37,7 +37,7 @@
                                     </a>
                                 </li>  
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/song/add">
+                                    <a href="admin/song/approve">
                                         <p>DUYỆT BÀI HÁT</p>
                                     </a>
                                 </li>       
@@ -117,7 +117,7 @@
                                 @endif
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
+                                <table class="table table-striped" id="table">
                                     <thead>
                                         <th>ID</th>
                                         <th>Tên</th>
@@ -154,5 +154,17 @@
                 window.location.href="admin/singer/delete/"+str;
             }
         }
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $(document).ready(function() {
+                $('#table').DataTable( {
+                    dom: 'Bfrtip',
+                    info: false
+                } );
+            } );
+        } );
     </script>
 @endsection

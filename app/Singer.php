@@ -22,4 +22,12 @@ class Singer extends Model
     	$id=Singer::where("name",$name)->get()[0]->id;
     	return $id;
     }
+
+    public function albumSinger(){
+        return $this->hasMany(Album_singer::class,"id_singer","id");
+    }
+
+    public function musicSinger(){
+        return $this->hasMany(Music_singer::class,"id_singer","id");
+    }
 }

@@ -37,7 +37,7 @@
                                     </a>
                                 </li>  
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/song/add">
+                                    <a href="admin/song/approve">
                                         <p>DUYỆT BÀI HÁT</p>
                                     </a>
                                 </li>       
@@ -125,6 +125,16 @@
                                             Thêm thành công
                                         </div>
                                     @endif
+                                    @if(session('errsong'))
+                                        <div class="alert alert-danger" style="width: 30%">
+                                            {{session('errsong')}}
+                                        </div>
+                                    @endif
+                                    @if(session('errimage'))
+                                        <div class="alert alert-danger" style="width: 30%">
+                                            {{session('errimage')}}
+                                        </div>
+                                    @endif
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -139,7 +149,7 @@
                                                 <div  class="form-control" style="border:1px solid #CCC5B9">
                                                     <input type="text" class="border-input" id="singer"  onkeyup="showResult()" style="border: none;background-color: #fffcf5">                                                    
                                                 </div>
-                                                <div id="result" >
+                                                <div id="result1" style="padding-left: 18px;max-height: 300px;overflow-y: scroll;">
                                                     
                                                 </div>
                                             </div>
@@ -162,7 +172,7 @@
                                                 <div  class="form-control" style="border:1px solid #CCC5B9">
                                                     <input type="text" class="border-input" id="topic"  onkeyup="showTopic()" style="border: none;background-color: #fffcf5">                                                    
                                                 </div>
-                                                <div id="resultTopic" >
+                                                <div id="resultTopic" style="padding-left: 18px;max-height: 300px;overflow-y: scroll;">
                                                     
                                                 </div>
                                             </div>
@@ -227,32 +237,32 @@
             str=$("#singer").val();
             if(str.length>0){
                 $.get("admin/ajax/search/"+str+"/"+JSON.stringify(arr),function(data){
-                    $("#result").html(data);
-                    $("#result").css("border","1px solid #CCC5B9");
-                    $("#result").css("border-radius","4px");
-                    $("#result").css("border-top","none");
-                    $(".result").css("margin-bottom","0px");
-                    $(".result").mouseover(function(){
+                    $("#result1").html(data);
+                    $("#result1").css("border","1px solid #CCC5B9");
+                    $("#result1").css("border-radius","4px");
+                    $("#result1").css("border-top","none");
+                    $(".result1").css("margin-bottom","0px");
+                    $(".result1").mouseover(function(){
                         $(this).css("background-color","#DDDDDD");
                         $(this).css("cursor","pointer");
                     });
-                    $(".result").mouseout(function(){
+                    $(".result1").mouseout(function(){
                         $(this).css("background-color","white");
                         $(this).css("cursor","auto");
                     });
 
-                    $(".result").click(function(){
+                    $(".result1").click(function(){
                         arr.push($(this).html());                      
                         $("#singera").append('<input id="singer'+ind+'" type="checkbox" name="singer[]" checked value="'+$(this).html()+'">');
                         $("#singer").before("<span style='background-color:#DDDDDD;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
                         ind++;
                         $("#singer").val("");
-                        $(".result").html("");
+                        $(".result1").html("");
                     });
                 });
             }    
             else{
-                $("#result").html("");
+                $("#result1").html("");
             }        
         }   
 

@@ -37,7 +37,7 @@
                                     </a>
                                 </li>  
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/song/add">
+                                    <a href="admin/song/approve">
                                         <p>DUYỆT BÀI HÁT</p>
                                     </a>
                                 </li>       

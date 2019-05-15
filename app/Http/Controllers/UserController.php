@@ -6,6 +6,7 @@ use App\Album;
 use App\Singer;
 use App\Playlist;
 use App\PlaylistMusic;
+use App\Music_singer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Pagination\Paginator;
@@ -14,6 +15,60 @@ use Validator;
 
 class UserController extends Controller
 {
+    function getSinger($title){
+        $singer=Singer::where("title",$title)->get()->first();
+        if (Auth::check()) $user=User::find(Auth::user()->id);
+        else $user=null;
+        return view("user/singer",["singer"=>$singer,"user"=>$user]);
+    }
+
+    function postUpload(Request $request){
+        $validator=Validator::make($request->all(), 
+            [
+                "singer"=>"required",
+                "song"=>"required",
+                "image"=>"required"
+            ], 
+            [
+                "singer.required"=>"Chưa chọn ca sĩ",
+                "song.required"=>"Chưa chọn bài hát",
+                "image.required"=>"Chưa chọn ảnh"
+            ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        $song1= $request->song;
+        $image=$request->image;
+        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
+        if($song1->getClientOriginalExtension()!="mp3" && $song1->getClientOriginalExtension()!="ogg" && $song1->getClientOriginalExtension()!="wav")
+            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
+        $user=User::find(Auth::user()->id);
+        $id_song=Music::max("id")+1;
+        $song= $request->song;
+        $image=$request->image;
+        $title=\changeTitle($request->name." ".$id_song);
+        Music::addMusic($id_song,$user->username, $request->name, $title, 2, $request->lyric, "media/".$title.".".$song->getClientOriginalExtension(), $request->musician,
+        "images/".$title.".".$image->getClientOriginalExtension(), $request->album);   
+        foreach ($request->singer as $value) {
+            Music_singer::musicSingerAdd($id_song, Singer::id($value));
+        }   
+        $song->move(base_path('public/media'),$title.".".$song->getClientOriginalExtension());
+        $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
+        return redirect()->back()->with("thongbao","Thêm thành công");
+    }
+
+    function getUpload(){
+        if (Auth::check()) {
+            $user=User::find(Auth::user()->id);
+            $id=$user->id;
+        }
+        else {
+            $user=null;
+            $id=null;
+        }
+        return view("user/upload",["user"=>$user,"id"=>$id]);
+    }
 
     function search($str){
         $str=changeTitle($str," ");
@@ -250,9 +305,8 @@ class UserController extends Controller
     function listSinger(){
          if (Auth::check()) $user=User::find(Auth::user()->id);
         else $user=null;
-        $newAlbums=Album::getNewAlbums(24);
-        $mostViewAlbums=Album::getMostViewAlbums(12);
-        return view("user/listsinger",["newAlbums"=>$newAlbums,"mostViewAlbums"=>$mostViewAlbums,"user"=>$user]);
+        $singers=Singer::where("status","1")->get();
+        return view("user/listsinger",["singers"=>$singers,"user"=>$user]);
     }
 
     function getPlaylist(){

@@ -20,4 +20,8 @@ class Album_singer extends Model
     public function singer(){
     	return $this->hasOne(Singer::class,"id","id_singer");
     }
+
+    public function album(){
+        return $this->hasOne(Album::class,"id","id_album");
+    }
 }

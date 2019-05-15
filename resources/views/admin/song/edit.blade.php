@@ -37,7 +37,7 @@
                                     </a>
                                 </li>  
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/song/add">
+                                    <a href="admin/song/approve">
                                         <p>DUYỆT BÀI HÁT</p>
                                     </a>
                                 </li>       
@@ -134,7 +134,7 @@
                                                     @endfor
                                                     <input type="text" class="border-input" id="singer"  onkeyup="showResult()" style="border: none;background-color: #fffcf5">                                                    
                                                 </div>
-                                                <div id="result" >
+                                                <div id="result" style="padding-left: 18px;max-height: 300px;overflow-y: scroll;">
                                                     
                                                 </div>
                                             </div>
@@ -160,7 +160,7 @@
                                                     @endfor
                                                     <input type="text" class="border-input" id="topic"  onkeyup="showTopic()" style="border: none;background-color: #fffcf5">                                                    
                                                 </div>
-                                                <div id="resultTopic" >
+                                                <div id="resultTopic" style="padding-left: 18px;max-height: 300px;overflow-y: scroll;">
                                                     
                                                 </div>
                                             </div>

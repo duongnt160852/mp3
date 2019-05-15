@@ -8,7 +8,7 @@ class Type_music extends Model
 {
     protected $table="topic_music";
     public $timestamps=false;
-    static public function musicTopicAdd($idSong, $idTopic){
+    static public function add($idSong, $idTopic){
     	$a= new Type_music;
     	$a->id_topic=$idTopic;
     	$a->id_music=$idSong;

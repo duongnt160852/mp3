@@ -52,6 +52,7 @@
 				<li><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
 				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
+				 <li><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
 			</ul>
@@ -309,14 +310,13 @@
 				<div class="tittle-head">
 					<div class="row">
 						<h3 class="tittle col-md-8" style="color: #2e9afe;">BÀI HÁT MỚI PHÁT HÀNH <span class="new">New</span></h3>
-						<a href="bai-hat" class="col-md-4"><h4 class="tittle">Xem tất cả</h4></a>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 				@foreach($newMusics as $song)
 					<div class="col-md-3 content-grid">
-						<a class="play-icon" href="bai-hat/{{$song->title}}"><img src="{{$song->image}}" title="{{$song->title}}"></a>
-						<a class="button play-icon" href="bai-hat/{{$song->title}}">{{$song->name}}</a>
+						<a class="play-icon" href="bai-hat/{{$song->title}}"><img src="{{$song->image}}" title="{{$song->name}}"></a>
+						<a class="button play-icon" href="bai-hat/{{$song->title}}" style="height: 50px">{{$song->name}}</a>
 					</div>
 				@endforeach
 				<div class="clearfix"> </div>
@@ -325,14 +325,13 @@
 				<div class="tittle-head">
 					<div class="row">
 						<h3 class="tittle col-md-8" style="color: #2e9afe;">ALBUM MỚI PHÁT HÀNH <span class="new">New</span></h3>
-						<a href="album" class="col-md-4"><h4 class="tittle">Xem tất cả</h4></a>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 				@foreach($newAlbums as $album)
 					<div class="col-md-3 content-grid">
-						<a class="play-icon" href="bai-hat/{{$album->title}}"><img src="{{$album->image}}" title="{{$album->title}}"></a>
-						<a class="button play-icon" href="bai-hat/{{$album->title}}">{{$album->name}}</a>
+						<a class="play-icon" href="album/{{$album->title}}"><img src="{{$album->image}}" title="{{$album->name}}"></a>
+						<a class="button play-icon" href="album/{{$album->title}}" style="height: 50px">{{$album->name}}</a>
 					</div>
 				@endforeach
 				<div class="clearfix"> </div>
@@ -379,7 +378,7 @@
 											<li>
 												<div style="display: flex;padding:6px 20px 11px 20px;">
 													<div style="margin-right: 10px">
-														<a href="bai-hat/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
+														<a href="album/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
 													</div>
 													<div >
 														<a style="font-size:1.5em!important" href="bai-hat/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>

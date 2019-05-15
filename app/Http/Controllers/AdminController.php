@@ -51,26 +51,33 @@ class AdminController extends Controller
         return view('admin/song/edit',["song"=>$song]);
     }
 
+    function getApprove(){
+        $songs=Music::where("status",2)->get();
+        return view('admin/song/approve',["songs"=>$songs]);
+    }
+
     function postAddSong(Request $request){
         $validator=Validator::make($request->all(), 
             [
                 "singer"=>"required",
                 "song"=>"required",
-                "image"=>"required",
-                "topic"=>"required"
+                "image"=>"required"
             ], 
             [
                 "singer.required"=>"Chưa chọn ca sĩ",
                 "song.required"=>"Chưa chọn bài hát",
-                "image.required"=>"Chưa chọn ảnh",
-                "topic.required"=>"Chưa chọn thể loại"
+                "image.required"=>"Chưa chọn ảnh"
             ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
-        $id_song=Music::max("id")+1;
         $song= $request->song;
         $image=$request->image;
+        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
+        if($song->getClientOriginalExtension()!="mp3" && $song->getClientOriginalExtension()!="ogg" && $song->getClientOriginalExtension()!="wav")
+            return redirect()->back()->with("errsong","Bài hát không đúng định dạng");
+        $id_song=Music::max("id")+1;
         $title=\changeTitle($request->name." ".$id_song);
         Music::addMusic($id_song,"nhaccuachungtui", $request->name, $title, 1, $request->lyric, "media/".$title.".".$song->getClientOriginalExtension(), $request->musician,
         "images/".$title.".".$image->getClientOriginalExtension(), $request->album);   
@@ -78,8 +85,8 @@ class AdminController extends Controller
             Music_singer::musicSingerAdd($id_song, Singer::id($value));
         }   
         foreach ($request->topic as $value) {
-            Type_music::musicTopicAdd($id_song, Topic::id($value));
-        }      
+            Type_music::add($id_song, Topic::id($value));
+        }   
         $song->move(base_path('public/media'),$title.".".$song->getClientOriginalExtension());
         $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
         return redirect()->back()->with("thongbao","Thêm thành công");
@@ -118,7 +125,14 @@ class AdminController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }  
+        $song1= $request->song;
+        $image=$request->image;
+        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
+        if($song1->getClientOriginalExtension()!="mp3" && $song1->getClientOriginalExtension()!="ogg" && $song1->getClientOriginalExtension()!="wav")
+            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
         $song->name=$request->name;
+        $song->id_album=$request->album;
         $title=changeTitle($request->name." ".$id);
         $song->title=$title;
         foreach ($song->music_singer as $value) {
@@ -133,7 +147,7 @@ class AdminController extends Controller
             $a->delete();
         }  
         foreach ($request->topic as $value) {
-            Type_music::musicTopicAdd($id, Topic::id($value));
+            Type_music::add($id, Topic::id($value));
         }   
         if($request->image!=null){
             $image=$request->image;
@@ -153,13 +167,16 @@ class AdminController extends Controller
 
     function deleteSong($id){
         $song=Music::find($id);
-        $song->status=2;
+        $song->status=0;
         $song->save();
         return redirect()->back()->with("thongbao","Xóa thành công");
     }
 
-    function getApproveSong(){
-        return view('admin/song/approve');
+    function approve($id){
+        $music=Music::find($id);
+        $music->status=1;
+        $music->save();
+        return redirect()->back();
     }
     
     function getAddSinger(){
@@ -190,6 +207,8 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }
         $image=$request->image;
+        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
         $title=\changeTitle($request->singer);
         Singer::addSinger($request->singer,changeTitle($request->singer),1,"images/".$title.".".$image->getClientOriginalExtension());
         $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
@@ -224,14 +243,25 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator);
         }  
         $singer->name=$request->name;
+        $title=changeTitle($request->name);
         $singer->title=changeTitle($request->name);
+        if($request->image!=null){
+            $image=$request->image;
+            if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
+            File::delete("images/".$singer->image);
+            $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
+            $singer->image="images/".$title.".".$image->getClientOriginalExtension();
+        }
         $singer->save();
         return redirect()->back()->with("thongbao","Sửa thành công");
     }
 
     function deleteSinger($id){
         $singer=Singer::find($id);
-        $singer->status=2;
+        $singer->status=0;
+        $singer->save();
+        return redirect()->back()->with("xoa","Xóa thành công");
     }
     
     function getAddAlbum(){
@@ -265,6 +295,10 @@ class AdminController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
+        $image=$request->image;
+        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
+            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
         $title=changeTitle($request->name);
         $image=$request->image;
         Album::addAlbum($idAlbum, $request->name,$title,"images/album-".$title.".".$image->getClientOriginalExtension(),1);
@@ -316,6 +350,8 @@ class AdminController extends Controller
         }   
         if($request->image!=null){
             $image=$request->image;
+            if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
             File::delete("images/".$album->image);
             $image->move(base_path('public/images'),"album-".$title.".".$image->getClientOriginalExtension());
             $album->image="images/album-".$title.".".$image->getClientOriginalExtension();
@@ -326,7 +362,7 @@ class AdminController extends Controller
 
     function deleteAlbum($id){
         $album=Album::find($id);
-        $album->status=2;
+        $album->status=0;
         $album->save();
         return redirect()->back()->with("thongbao","Xóa thành công");
     }
@@ -380,18 +416,18 @@ class AdminController extends Controller
 
     function deleteTopic($id){
         $topic=Topic::find($id);
-        $topic->status=2;
+        $topic->status=0;
         $topic->save();
         return redirect()->back()->with("xoa","Xóa thành công");
     }
     
     function ajaxSearch(Request $request){
-        $str=$request->str;
+        $str=changeTitle($request->str," ");
         $arr=json_decode($request->arr);
         $singer=Singer::all();
         $result=array();
         foreach ($singer as $value) {
-            if (preg_match(strtolower('/.*'.$str.'.*/'),strtolower($value->name))){
+            if (strpos(changeTitle($value->name," "), $str) !== false){
                 array_push($result,$value->name);
             }
         }
@@ -400,7 +436,7 @@ class AdminController extends Controller
         else {
             $a=count($result);
             foreach ($result as $value) {
-                if(array_search($value, $arr)===false) echo "<p class='result'>".$value."</p>";
+                if(array_search($value, $arr)===false) echo "<p class='result1'>".$value."</p>";
                 else $a--;
             }
             if($a==0) echo "Không tìm thấy";    

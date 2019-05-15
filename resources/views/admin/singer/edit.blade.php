@@ -37,7 +37,7 @@
                                     </a>
                                 </li>  
                                 <li id="userAdd" style="margin: 0px;position: relative;left: 47px;width: 212px">
-                                    <a href="admin/song/add">
+                                    <a href="admin/song/approve">
                                         <p>DUYỆT BÀI HÁT</p>
                                     </a>
                                 </li>       
@@ -105,7 +105,7 @@
 @section('content')
 <div class="content">
             <div class="container-fluid">
-                <form action="admin/singer/edit/{{$singer->id}}" method="post">
+                <form action="admin/singer/edit/{{$singer->id}}" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group">
                                         @if(count($errors)>0)
@@ -118,14 +118,36 @@
                                                 {{session('thongbao')}}
                                             </div>
                                         @endif
-                                        <div class="row"> 
-                                                <div class="col-xs-4 col-md-4">
-                                                    <div>
-                                                       <label>Tên ca sĩ</label>
-                                                    </div>
-                                                    <input class="form-control border-input" type="text" name="name" value="{{$singer->name}}" required="">
-                                                </div> 
+                                        @if(session('errimage'))
+                                            <div class="alert alert-danger" style="width: 30%">
+                                                {{session('errimage')}}
                                             </div>
+                                        @endif
+                                        <div class="row"> 
+                                            <div class="col-xs-4 col-md-4">
+                                                <div>
+                                                   <label>Tên ca sĩ</label>
+                                                </div>
+                                                <input class="form-control border-input" type="text" name="name" value="{{$singer->name}}" required="">
+                                            </div> 
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <label>
+                                                 Ảnh
+                                             </label> 
+                                            </div>
+                                             <img src="{{$singer->image}}" alt="">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label>
+                                                 Thay đổi ảnh
+                                             </label> 
+                                             <input class="form-control" type="file" name="image" value="" >
+                                        </div>
+                                        
+                                    </div>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Sửa</button>

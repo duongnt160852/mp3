@@ -52,6 +52,7 @@
 				<li><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
 				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
+				 <li><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
 			</ul>
@@ -342,7 +343,6 @@
 							<div class="albums fourth">
 									<div class="tittle-head two">
 										<h3 class="tittle">Nghe Nhiều Nhất <span class="new">View</span></h3>
-										<a href="browse.html"><h4 class="tittle third">Xem tất cả</h4></a>
 										<div class="clearfix"> </div>
 									</div>
 										@foreach($mostViewMusics as $songs)

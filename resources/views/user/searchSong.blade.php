@@ -52,6 +52,7 @@
 				<li><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
 				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
+				 <li><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
 			</ul>
@@ -583,8 +584,9 @@
                 $('#table').DataTable( {
                     dom: 'Bfrtip',
                     "searching": false,
-                    "pageLength": 15,
+                    "pageLength": 10,
                     "ordering": false,
+                    "info":false
                 } );
             } );
         } );

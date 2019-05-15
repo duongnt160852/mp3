@@ -13,11 +13,12 @@ class admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = 'admin')
     {
-        if (Auth::guard('admin')->check()){
-            return redirect()->route("home");
+        if (!Auth::guard($guard)->check()) {
+            return redirect('admin/login');
         }
+
         return $next($request);
     }
 }
