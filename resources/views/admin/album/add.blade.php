@@ -124,6 +124,11 @@
                                             Thêm thành công
                                         </div>
                                     @endif
+                                    @if(session('errimage'))
+                                            <div class="alert alert-danger" style="width: 30%">
+                                                {{session('errimage')}}
+                                            </div>
+                                        @endif
                                     <div class="form-group">
                                         <div class="row"> 
                                                 <div class="col-lg-4">

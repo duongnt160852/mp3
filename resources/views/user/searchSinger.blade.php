@@ -11,7 +11,7 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<!-- Graph CSS -->
@@ -198,7 +198,7 @@
 								<span class="sb-icon-search"></span>
 							</form>
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>
@@ -359,7 +359,7 @@
                                    	    </div>
                                    	    <div style="padding-left: 15px;width: 300px">
                                    	    	<div style="margin-top: 15px">
-                                   	    		<a href="ca-si/{{$singer->title}}" style="font-size: 1em!important">{{$singer->name}}</a>
+                                   	    		<a href="nghe-si/{{$singer->title}}" style="font-size: 1em!important">{{$singer->name}}</a>
                                    	    	</div>
                                    	    </div>
                                    	    
@@ -492,9 +492,9 @@
 												<a style="font-size:1.5em!important" href="bai-hat/{{$song->title}}" class="jp-playlist-item" tabindex="0">{{$song->name}}</a>
 												@for($i=0;$i<count($song->music_singer);$i++)
 													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
+													<a style="display:inline;font-size:1em!important" href="nghe-si/{{$song->music_singer[$i]->singer->title}}">{{$song->music_singer[$i]->singer->name}}</a>
 													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
+													, <a style="display:inline;font-size:1em!important" href="nghe-si/{{$song->music_singer[$i]->singer->title}}">{{$song->music_singer[$i]->singer->name}}</a>
 													@endif
 												@endfor
 												<br>
@@ -512,15 +512,15 @@
 											<li>
 												<div style="display: flex;padding:6px 20px 11px 20px;">
 													<div style="margin-right: 10px">
-														<a href="bai-hat/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
+														<a href="album/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
 													</div>
 													<div >
-														<a style="font-size:1.5em!important" href="bai-hat/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>
+														<a style="font-size:1.5em!important" href="album/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>
 														@for($i=0;$i<count($album->album_singer);$i++)
 															@if($i==0) 
-															<a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+															<a style="display:inline;font-size:1em!important" href="nghe-si/{{$album->album_singer[$i]->singer->title}}">{{$album->album_singer[$i]->singer->name}}</a>
 															@else
-															, <a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+															, <a style="display:inline;font-size:1em!important" href="nghe-si/{{$album->album_singer[$i]->singer->title}}">{{$album->album_singer[$i]->singer->name}}</a>
 															@endif
 														@endfor
 														<br>
@@ -554,10 +554,8 @@
 	<script src="js/scripts.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+	<link rel="stylesheet" type="text/css" href="datatable/datatables.css">
+    <script type="text/javascript" charset="utf8" src="datatable/datatables.js"></script>
     <script>
         $(document).ready( function () {
             $(document).ready(function() {

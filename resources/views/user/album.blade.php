@@ -11,11 +11,9 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
   	<link rel="stylesheet" type="text/css" href="css/audio1.css">
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
 
   
 	<!-- Custom CSS -->
@@ -28,7 +26,6 @@
 	<!-- //lined-icons -->
 	<!-- Meters graphs -->
 	<script src="js/jquery-2.1.4.js"></script>
-	{{-- <script src="js/undoredo.js"></script> --}}
 
 </head> 
 <!-- /w3layouts-agile -->
@@ -206,7 +203,7 @@
 							</form>
 							
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>
@@ -351,8 +348,8 @@
 							</div>
 							
 							</div>
-							<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
-							<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+							<link rel='stylesheet' href='fontawesome/css/fontawesome.min.css'>
+							<script src='jqueryui/jquery-ui.min.js'></script>
 						
 							<script>
 								var duration;
@@ -384,9 +381,9 @@
                                	{{$i+1}}. <a style="display:inline;font-size:1em!important" id="{{$album->albumMusic[$i]->id}}">{{$album->albumMusic[$i]->name}}</a>
                                	<span>- @for($j=0;$j<count($album->albumMusic[$i]->music_singer);$j++)
 											@if($j+1==count($album->albumMusic[$i]->music_singer)) 
-											<a style="display:inline;font-size:0.8em!important">{{$album->albumMusic[$i]->music_singer[$j]->singer->name}}</a>
+											<a href="nghe-si/{{$album->albumMusic[$i]->music_singer[$j]->singer->title}}" style="display:inline;font-size:0.8em!important">{{$album->albumMusic[$i]->music_singer[$j]->singer->name}}</a>
 											@else
-											<a style="display:inline;font-size:0.8em!important">{{$album->albumMusic[$i]->music_singer[$j]->singer->name}}</a>,
+											<a href="nghe-si/{{$album->albumMusic[$i]->music_singer[$j]->singer->title}}" style="display:inline;font-size:0.8em!important">{{$album->albumMusic[$i]->music_singer[$j]->singer->name}}</a>,
 											@endif
 										@endfor</span>
                                	<div class="control1">
@@ -559,9 +556,9 @@
 																<a style="font-size:1.5em!important" href="bai-hat/{{$song->title}}" class="jp-playlist-item" tabindex="0">{{$song->name}}</a>
 																@for($i=0;$i<count($song->music_singer);$i++)
 																	@if($i+1==count($song->music_singer)) 
-																	<a style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>
+																	<a href="nghe-si/{{$song->music_singer[$i]->singer->title}}" style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>
 																	@else
-																	<a style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>,
+																	<a href="nghe-si/{{$song->music_singer[$i]->singer->title}}" style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>,
 																	@endif
 																@endfor
 																<br>

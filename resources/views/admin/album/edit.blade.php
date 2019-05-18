@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Sửa</button>
-                                        <a href="admin/subject/list" class="btn btn-info btn-fill btn-wd">Hủy</a>
+                                        <a href="admin/album/list" class="btn btn-info btn-fill btn-wd">Hủy</a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>

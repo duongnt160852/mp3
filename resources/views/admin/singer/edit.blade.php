@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-fill btn-wd">Sửa</button>
-                                        <a href="admin/question/list" class="btn btn-info btn-fill btn-wd">Hủy</a>
+                                        <a href="admin/singer/list" class="btn btn-info btn-fill btn-wd">Hủy</a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>

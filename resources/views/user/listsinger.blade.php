@@ -10,7 +10,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+<link rel='stylesheet' href='fontawesome/css/all.css'>
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
@@ -195,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</form>
 							
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>
@@ -305,7 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  
 							<div id="myTabContent" class="tab-content">
 								<div class="tittle-head two">
-								<h3 class="tittle">Nghệ Sĩ</h3>
+								<h3 class="tittle" style="padding-left: 20px;font-family: Arial;color: #2e9afe;">NGHỆ SĨ</h3>
 								<div class="clearfix"> </div>
 							</div>
 							  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
@@ -380,10 +380,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 </section>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" ></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+	<link rel="stylesheet" type="text/css" href="datatable/datatables.css">
+    <script type="text/javascript" charset="utf8" src="datatable/datatables.js"></script>
     <script>
         $(document).ready( function () {
             $(document).ready(function() {

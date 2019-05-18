@@ -126,7 +126,7 @@
                                 @endif
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <table class="table table-striped">
+                                <table class="table table-striped" id="table">
                                     <thead>
                                         <th>ID</th>
                                         <th>Tên</th>
@@ -138,8 +138,8 @@
                                             <tr>
                                                 <td>{{$topic->id}}</td>
                                                 <td>{{$topic->name}}</td>
-                                                <td><a href="admin/topic/edit/{{$topic->id}}"><img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
-                                                <td><a onclick="myFunction('{{$topic->id}}')" style="cursor: pointer;"><img src="https://cdn2.iconfinder.com/data/icons/basic-ui-elements-plain/448/010_trash-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a href="admin/topic/edit/{{$topic->id}}"><img src="images/icons/edit.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a onclick="myFunction('{{$topic->id}}')" style="cursor: pointer;"><img src="images/icons/delete.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -164,5 +164,17 @@
                 window.location.href="admin/topic/delete/"+str;
             }
         }
+    </script>
+    <link rel="stylesheet" type="text/css" href="datatable/datatables.css">
+    <script type="text/javascript" charset="utf8" src="datatable/datatables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $(document).ready(function() {
+                $('#table').DataTable( {
+                    dom: 'Bfrtip',
+                    info: false
+                } );
+            } );
+        } );
     </script>
 @endsection

@@ -11,7 +11,7 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<!-- Graph CSS -->
@@ -52,7 +52,7 @@
 				<li><a href="nghe-si"><i class="lnr lnr-users"></i> <span>Nghệ Sĩ</span></a></li> 
 				<li><a href="album"><i class="lnr lnr-music-note"></i> <span>Albums</span></a></li>			
 				 @if($user!=null)
-				 <li><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
+				 <li class="active"><a href="upload"><i class="lnr lnr-cloud-upload"></i> <span>Upload</span></a></li>
 				<li><a href="user/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
 				@endif
 			</ul>
@@ -198,7 +198,7 @@
 								<span class="sb-icon-search"></span>
 							</form>
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>

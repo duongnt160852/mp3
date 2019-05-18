@@ -356,6 +356,6 @@
         });
 </script>
     <script>
-    $("title").html("Sửa thí sinh");
+    $("title").html("Sửa bài hát");
     </script>
 @endsection

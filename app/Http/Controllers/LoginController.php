@@ -80,8 +80,13 @@ class LoginController extends Controller
     	return redirect()->back()->with("thongbao","Đăng nhập thất bại");
     }
 
-    public function logout(){
+    public function userLogout(){
         Auth::logout();
+        return redirect()->back();
+    }
+
+    public function logout(){
+        Auth::guard("admin")->logout();
         return redirect()->back();
     }
 

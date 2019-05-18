@@ -11,11 +11,9 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
   	<link rel="stylesheet" type="text/css" href="css/audio1.css">
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
 
   
 	<!-- Custom CSS -->
@@ -289,7 +287,7 @@
 								<span class="sb-icon-search"></span>
 							</form>
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>

@@ -143,8 +143,8 @@
                                                 <td>{{$song->views}}</td>
                                                 <td>{{$song->musician}}</td>
                                                 <td>{{$song->created_at->format('d-m-Y')}}</td>
-                                                <td><a href="admin/song/edit/{{$song->id}}"><img src="https://cdn1.iconfinder.com/data/icons/real-estate-set-2/512/21-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
-                                                <td><a onclick="myFunction('{{$song->id}}')" style="cursor: pointer;"><img src="https://cdn2.iconfinder.com/data/icons/basic-ui-elements-plain/448/010_trash-512.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a href="admin/song/edit/{{$song->id}}"><img src="images/icons/edit.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
+                                                <td><a onclick="myFunction('{{$song->id}}')" style="cursor: pointer;"><img src="images/icons/delete.png" class="img-responsive " alt="Responsive image" width="16" height="16"></a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -157,8 +157,8 @@
         </div>
 @endsection
 @section('script')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="datatable/datatables.css">
+    <script type="text/javascript" charset="utf8" src="datatable/datatables.js"></script>
     <script>
         $(document).ready( function () {
             $(document).ready(function() {

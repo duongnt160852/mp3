@@ -16,7 +16,7 @@ use Validator;
 class UserController extends Controller
 {
     function getSinger($title){
-        $singer=Singer::where("title",$title)->get()->first();
+        $singer=Singer::where([["title",$title],["status",1]])->get()->first();
         if (Auth::check()) $user=User::find(Auth::user()->id);
         else $user=null;
         return view("user/singer",["singer"=>$singer,"user"=>$user]);
@@ -72,7 +72,7 @@ class UserController extends Controller
 
     function search($str){
         $str=changeTitle($str," ");
-        $musics=Music::all();
+        $musics=Music::where("status","1")->get();
         $music=array();
         $i=0;
         foreach ($musics as $a) {
@@ -81,7 +81,7 @@ class UserController extends Controller
                 $i++;
             }
         }
-        $albums=Album::all();
+        $albums=Album::where("status","1")->get();
         $album=array();
         $i=0;
         foreach ($albums as $a) {
@@ -90,7 +90,7 @@ class UserController extends Controller
                 $i++;
             }
         }
-        $singers=Singer::all();
+        $singers=Singer::where("status","1")->get();
         $singer=array();
         $i=0;
         foreach ($singers as $a) {
@@ -99,24 +99,22 @@ class UserController extends Controller
                 $i++;
             }
         }
-        // $x=[$music,$album,$singer];
-        // echo json_encode($x);
         if(count($music)>0){
             echo "<div style='background:linear-gradient(to right, #eaeaea 0%,#fafafa 100%);height:40px;line-height:40px;padding-left:20px'>Bài hát</div>";
             echo "<div >";
             foreach ($music as $value) {
-                echo "<div style='border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:10px;padding-bottom:10px'>";
+                echo "<div style='height:60px;border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:10px;padding-bottom:10px'>";
                 echo "<div>";
                 echo "<a href='bai-hat/".$value->title."'>".$value->name."</a>";
                 echo "</div>";
                 echo "<div>";
                 for($i=0;$i<count($value->music_singer);$i++){
                     if($i==0) {
-                       echo '<a href="ca-si/'.$value->music_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->music_singer[$i]->singer->name.'</a>';
+                       echo '<a href="nghe-si/'.$value->music_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->music_singer[$i]->singer->name.'</a>';
                     }
                     
                     else{
-                        echo ', <a href="ca-si/'.$value->music_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->music_singer[$i]->singer->name.'</a>';
+                        echo ', <a href="nghe-si/'.$value->music_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->music_singer[$i]->singer->name.'</a>';
                     }
                     
                 }
@@ -128,10 +126,25 @@ class UserController extends Controller
         }
         if(count($album)>0){
             echo "<div style='background:linear-gradient(to right, #eaeaea 0%,#fafafa 100%);height:40px;line-height:40px;padding-left:20px'>Album</div>";
-            
+            echo "<div >";
             foreach ($album as $value) {
-                echo "<div style='border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:10px;padding-bottom:10px'>";
+                echo "<div style='height:60px;border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:10px;padding-bottom:10px'>";
+                echo "<div>";
                 echo "<a href='album/".$value->title."'>".$value->name."</a>";
+                echo "</div>";
+                echo "<div>";
+                for($i=0;$i<count($value->album_singer);$i++){
+                    if($i==0) {
+                       echo '<a href="nghe-si/'.$value->album_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->album_singer[$i]->singer->name.'</a>';
+                    }
+                    
+                    else{
+                        echo ', <a href="nghe-si/'.$value->album_singer[$i]->singer->title.'" style="display:inline;font-size:0.8em" href="">'.$value->album_singer[$i]->singer->name.'</a>';
+                    }
+                    
+                }
+                 echo "</div>";   
+                    
                 echo "</div>";
             }
             echo "</div>";
@@ -139,8 +152,9 @@ class UserController extends Controller
         if(count($singer)>0){
             echo "<div style='background:linear-gradient(to right, #eaeaea 0%,#fafafa 100%);height:40px;line-height:40px;padding-left:20px'>Ca sĩ</div>";
             foreach ($singer as $value) {
-                echo "<div style='border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:10px;padding-bottom:10px'>";
-                echo "<a href='album/".$value->title."'>".$value->name."</a>";
+                echo "<div style='display:flex;border-bottom:1px solid #b9c0c5;padding-left:20px;padding-top:2px;padding-bottom:2px'>";
+                echo "<a href='nghe-si/".$value->title."'><img src='".$value->image."' height='50px'></a>";
+                echo "<a href='nghe-si/".$value->title."'>".$value->name."</a>";
                 echo "</div>";
             }
             echo "</div>";
@@ -162,21 +176,21 @@ class UserController extends Controller
         $mostViewAlbums=Album::getMostViewAlbums();
         $str1=$str;
         $str=changeTitle($str," ");
-        $musics=Music::all();
+        $musics=Music::where("status","1")->get();
         $music=array();
         foreach ($musics as $a) {
             if((strpos(changeTitle($a->name," "), $str) !== false)){
                 array_push($music,$a);
             }
         }
-        $albums=Album::all();
+        $albums=Album::where("status","1")->get();
         $album=array();
         foreach ($albums as $a) {
             if(strpos(changeTitle($a->name," "), $str) !== false){
                 array_push($album,$a);
             }
         }
-        $singers=Singer::all();
+        $singers=Singer::where("status","1")->get();
         $singer=array();
         foreach ($singers as $a) {
             if(strpos(changeTitle($a->name," "), $str) !== false){
@@ -201,7 +215,7 @@ class UserController extends Controller
         $mostViewAlbums=Album::getMostViewAlbums();
         $str1=$str;
         $str=changeTitle($str," ");
-        $musics=Music::all();
+        $musics=Music::where("status","1")->get();
         $music=array();
         foreach ($musics as $a) {
             if((strpos(changeTitle($a->name," "), $str) !== false)){
@@ -229,7 +243,7 @@ class UserController extends Controller
         $mostViewAlbums=Album::getMostViewAlbums();
         $str1=$str;
         $str=changeTitle($str," ");
-        $albums=Album::all();
+        $albums=Album::where("status","1")->get();
         $album=array();
         foreach ($albums as $a) {
             if(strpos(changeTitle($a->name," "), $str) !== false){
@@ -257,7 +271,7 @@ class UserController extends Controller
         $mostViewAlbums=Album::getMostViewAlbums();
         $str1=$str;
         $str=changeTitle($str," ");
-        $singers=Singer::all();
+        $singers=Singer::where("status","1")->get();
         $singer=array();
         foreach ($singers as $a) {
             if(strpos(changeTitle($a->name," "), $str) !== false){
@@ -363,6 +377,16 @@ class UserController extends Controller
         return view("user/playlist",["playlist"=>$playlist,"mostViewMusics"=>$mostViewMusics,"user"=>$user,"id"=>$id1]);
     }
     function getAlbum($id){
+        $music=Music::find($id);
+        $a=array();
+        for($i=0;$i<count($music->music_singer);$i++){
+            array_push($a,$music->music_singer[$i]->singer->name);
+        }
+        $music->singer=$a;
+        echo json_encode($music);
+    }
+
+    function getSongPlaylist($id){
         $music=Music::find($id);
         $a=array();
         for($i=0;$i<count($music->music_singer);$i++){

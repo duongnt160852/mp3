@@ -109,7 +109,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Danh Sách Bài Hát</h4>
+                                <h4 class="title">Duyệt Bài Hát</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 @if(session('thongbao'))
@@ -180,7 +180,7 @@
         } );
     </script>
     <script>
-    $("title").html("Danh sách bài hát");
+    $("title").html("Duyệt bài hát");
     </script>
     <script>
         function myFunction(str){

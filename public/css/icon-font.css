@@ -6,12 +6,12 @@ License: https://linearicons.com/free/license
 */
 @font-face{
 	font-family:Linearicons-Free;
-	src:url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.eot);
-	src:url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.eot?#iefix) format('embedded-opentype'),
-		url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.woff2) format('woff2'),
-		url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.ttf) format('truetype'),
-		url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.woff) format('woff'),
-		url(https://cdn.linearicons.com/free/1.0.0/Linearicons-Free.svg#Linearicons-Free) format('svg');
+	src:url(../fonts/Linearicons-Free.eot);
+	src:url(../fonts/Linearicons-Free.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/Linearicons-Free.woff2) format('woff2'),
+		url(../fonts/Linearicons-Free.ttf) format('truetype'),
+		url(../fonts/Linearicons-Free.woff) format('woff'),
+		url(../fonts/Linearicons-Free.svg#Linearicons-Free) format('svg');
 	font-weight:400;
 	font-style:normal
 }

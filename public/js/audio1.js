@@ -87,7 +87,7 @@ $(".next").click(function(){
       $(".active1 i:first").siblings(".play1").addClass("fa-pause");
       i++;
     });
-    $.get("ajax/songview/"+$(this).attr('id')+"/"+$("#total").text());
+    $.get("ajax/songview/"+undoRedoHandler._redoStack[undoRedoHandler._redoStack.length-1].id+"/"+$("#total").text());
 });
 
 $(".previous").click(function(){
@@ -133,7 +133,7 @@ $(".previous").click(function(){
       $(".active1 i:first").siblings(".play1").addClass("fa-pause");
       i++;
     });
-    $.get("ajax/songview/"+$(this).attr('id')+"/"+$("#total").text());
+    $.get("ajax/songview/"+undoRedoHandler._redoStack[undoRedoHandler._redoStack.length-1].id+"/"+$("#total").text());
 });
 
 

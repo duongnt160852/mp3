@@ -123,6 +123,11 @@
                                                 Thêm thành công
                                             </div>
                                         @endif
+                                        @if(session('errimage'))
+                                            <div class="alert alert-danger" style="width: 30%">
+                                                {{session('errimage')}}
+                                            </div>
+                                        @endif
                                         <div class="row"> 
                                                 <div class="col-xs-4 col-md-4">
                                                     <div>

@@ -15,7 +15,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="css/admin/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
 
     <!-- Animation library for notifications   -->
     <link href="css/admin/animate.min.css" rel="stylesheet"/>
@@ -29,7 +29,6 @@
 
     <!--  Fonts and icons     -->
     
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="css/themify-icons.css" rel="stylesheet">
 
 </head>
@@ -66,7 +65,6 @@
     <script src="js/admin/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="js/admin/paper-dashboard.js"></script>

@@ -34,6 +34,8 @@ Route::get("ajax/songview/{id}/{duration}","AlbumController@ajaxSong");
 
 Route::get("ajax/album/{id}","UserController@getAlbum");
 
+Route::get("ajax/playlist/{id}","UserController@getSongPlaylist");
+
 Route::get('/', "UserController@getHome")->name("gethome");
 
 Route::get('admin/login',"LoginController@getLoginAdmin")->name("login");
@@ -55,6 +57,8 @@ Route::get("nghe-si/{title}","UserController@getSinger");
 Route::get("upload","UserController@getUpload");
 
 Route::post("postUpload","UserController@postUpload");
+
+Route::get("ajax/update/{name}","UserController@update");
 
 Route::get('audio',function(){
 	return view('user/audio');
@@ -82,7 +86,7 @@ Route::group(["middleware"=>"auth"],function(){
 
 	Route::get("ajax/getPlaylist/{id}","UserController@ajaxGetPlaylist");
 
-	Route::get("user/logout","LoginController@logout");
+	Route::get("user/logout","LoginController@userLogout");
 });
 
 Route::group(["prefix"=>"admin", "middleware"=>"admin"],function(){

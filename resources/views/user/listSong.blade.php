@@ -11,7 +11,7 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<!-- Graph CSS -->
@@ -198,7 +198,7 @@
 								<span class="sb-icon-search"></span>
 							</form>
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;border-top:none;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>
@@ -312,7 +312,7 @@
 							
 							<div id="myTabContent" class="tab-content">
 								<div class="tittle-head two">
-								<h3 class="tittle">Mới Nhất <span class="new">New</span></h3>
+								<h3 class="tittle" style="color: #2e9afe;">Bài Hát Mới Nhất <span class="new">New</span></h3>
 								<div class="clearfix"> </div>
 							</div>
 							  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
@@ -342,7 +342,7 @@
 					<!--//discover-view-->
 							<div class="albums fourth">
 									<div class="tittle-head two">
-										<h3 class="tittle">Nghe Nhiều Nhất <span class="new">View</span></h3>
+										<h3 class="tittle" style="color: #2e9afe;">Bài Hát Nghe Nhiều Nhất <span class="new">View</span></h3>
 										<div class="clearfix"> </div>
 									</div>
 										@foreach($mostViewMusics as $songs)

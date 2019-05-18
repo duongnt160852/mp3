@@ -99,12 +99,10 @@ class AdminController extends Controller
             global $validator;
             $validator=Validator::make($request->all(), 
                 [
-                    "name"=>"unique:musics,name",
                     "singer"=>"required",
                     "topic"=>"required"
                 ], 
                 [
-                    "name.unique"=>"Album đã tồn tại",
                     "singer.required"=>"Chưa chọn ca sĩ",
                     "topic.required"=>"Chưa chọn thể loại"
                 ]);
@@ -127,10 +125,6 @@ class AdminController extends Controller
         }  
         $song1= $request->song;
         $image=$request->image;
-        if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
-            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
-        if($song1->getClientOriginalExtension()!="mp3" && $song1->getClientOriginalExtension()!="ogg" && $song1->getClientOriginalExtension()!="wav")
-            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
         $song->name=$request->name;
         $song->id_album=$request->album;
         $title=changeTitle($request->name." ".$id);
@@ -150,12 +144,16 @@ class AdminController extends Controller
             Type_music::add($id, Topic::id($value));
         }   
         if($request->image!=null){
+            if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
+            return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
             $image=$request->image;
             File::delete("images/".$song->image);
             $image->move(base_path('public/images'),$title.".".$image->getClientOriginalExtension());
             $song->image="images/".$title.".".$image->getClientOriginalExtension();
         }
         if($request->song!=null){
+            if($song1->getClientOriginalExtension()!="mp3" && $song1->getClientOriginalExtension()!="ogg" && $song1->getClientOriginalExtension()!="wav")
+            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
             $song1=$request->song;
             File::delete($song->link);
             $song1->move(base_path('public/media'),$title.".".$song1->getClientOriginalExtension());
@@ -298,7 +296,6 @@ class AdminController extends Controller
         $image=$request->image;
         if($image->getClientOriginalExtension()!="jpg" && $image->getClientOriginalExtension()!="png")
             return redirect()->back()->with("errimage","Ảnh không đúng định dạng");
-            return redirect()->back()->with("errsong","Bài hát không đúng định dạng"); 
         $title=changeTitle($request->name);
         $image=$request->image;
         Album::addAlbum($idAlbum, $request->name,$title,"images/album-".$title.".".$image->getClientOriginalExtension(),1);
@@ -424,7 +421,7 @@ class AdminController extends Controller
     function ajaxSearch(Request $request){
         $str=changeTitle($request->str," ");
         $arr=json_decode($request->arr);
-        $singer=Singer::all();
+        $singer=Singer::where("status","1")->get();
         $result=array();
         foreach ($singer as $value) {
             if (strpos(changeTitle($value->name," "), $str) !== false){
@@ -446,7 +443,7 @@ class AdminController extends Controller
     function ajaxSearchTopic(Request $request){
         $str=$request->str;
         $arr=json_decode($request->arr);
-        $topic=Topic::all();
+        $topic=Topic::where("status","1")->get();
         $result=array();
         foreach ($topic as $value) {
             if (preg_match(strtolower('/.*'.$str.'.*/'),strtolower($value->name))){
@@ -466,7 +463,7 @@ class AdminController extends Controller
     }
 
     function ajaxAlbum(Request $request){
-        $album= Album::all();
+        $album= Album::where("status","1")->get();
         if($request->id==null){
             foreach ($album as $value) {
                 echo '<option value="'.$value->id.'">'.$value->name.'</option>';

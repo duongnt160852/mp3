@@ -11,7 +11,7 @@
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.10/css/all.css'>
+	<link rel='stylesheet' href='fontawesome/css/all.css'>
 	<!-- Custom CSS -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<!-- Graph CSS -->
@@ -198,7 +198,7 @@
 								<span class="sb-icon-search"></span>
 							</form>
 						</div>
-						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;display:none;background-color: #fff" id="result" class="result2">
+						<div style="max-height:700px;overflow-y:auto;position:absolute;right:92px;top:66px;z-index: 999;border: 1px solid black;width: 74.7%;border-top:none;display:none;background-color: #fff" id="result" class="result2">
 							
 						</div>
 					</div>
@@ -316,7 +316,7 @@
 				@foreach($newMusics as $song)
 					<div class="col-md-3 content-grid">
 						<a class="play-icon" href="bai-hat/{{$song->title}}"><img src="{{$song->image}}" title="{{$song->name}}"></a>
-						<a class="button play-icon" href="bai-hat/{{$song->title}}" style="height: 50px">{{$song->name}}</a>
+						<a class="button play-icon " href="bai-hat/{{$song->title}}" style="height: 50px">{{$song->name}}</a>
 					</div>
 				@endforeach
 				<div class="clearfix"> </div>
@@ -357,10 +357,10 @@
 											<div >
 												<a style="font-size:1.5em!important" href="bai-hat/{{$song->title}}" class="jp-playlist-item" tabindex="0">{{$song->name}}</a>
 												@for($i=0;$i<count($song->music_singer);$i++)
-													@if($i==0) 
-													<a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
+													@if($i+1==count($song->music_singer)) 
+														<a href="nghe-si/{{$song->music_singer[$i]->singer->title}}" style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>
 													@else
-													, <a style="display:inline;font-size:1em!important" href="">{{$song->music_singer[$i]->singer->name}}</a>
+														<a href="nghe-si/{{$song->music_singer[$i]->singer->title}}"style="display:inline;font-size:1em!important">{{$song->music_singer[$i]->singer->name}}</a>,
 													@endif
 												@endfor
 												<br>
@@ -381,12 +381,12 @@
 														<a href="album/{{$album->title}}"><span><img src="{{$album->image}}" width="60px" height="60px"></span></a>
 													</div>
 													<div >
-														<a style="font-size:1.5em!important" href="bai-hat/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>
+														<a style="font-size:1.5em!important" href="album/{{$album->title}}" class="jp-playlist-item" tabindex="0">{{$album->name}}</a>
 														@for($i=0;$i<count($album->album_singer);$i++)
-															@if($i==0) 
-															<a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+															@if($i+1==count($album->album_singer)) 
+																<a href="nghe-si/{{$album->album_singer[$i]->singer->title}}" style="display:inline;font-size:1em!important">{{$album->album_singer[$i]->singer->name}}</a>
 															@else
-															, <a style="display:inline;font-size:1em!important" href="">{{$album->album_singer[$i]->singer->name}}</a>
+																<a href="nghe-si/{{$album->album_singer[$i]->singer->title}}" style="display:inline;font-size:1em!important">{{$album->album_singer[$i]->singer->name}}</a>,
 															@endif
 														@endfor
 														<br>
