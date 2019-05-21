@@ -24,8 +24,8 @@ class MusicController extends Controller
             $id=null;
         }
         $song=Music::where("title",$request->title)->get()[0];
-        $mostViewMusics=Music::getMostViewMusics();
-        return view("user/song",["song"=>$song,"mostViewMusics"=>$mostViewMusics,"user"=>$user,"id"=>$id]);
+        $randomMusics=Music::getRandomMusic(10);
+        return view("user/song",["song"=>$song,"mostViewMusics"=>$randomMusics,"user"=>$user,"id"=>$id]);
     }
 
     function getListSong(){

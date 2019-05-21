@@ -254,15 +254,17 @@
                     $(".result1").click(function(){
                         arr.push($(this).html());                      
                         $("#singera").append('<input id="singer'+ind+'" type="checkbox" name="singer[]" checked value="'+$(this).html()+'">');
-                        $("#singer").before("<span style='background-color:#DDDDDD;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
+                        $("#singer").before("<span style='background-color:#fff;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
                         ind++;
                         $("#singer").val("");
                         $(".result1").html("");
+                        $("#result1").css("border","none");
                     });
                 });
             }    
             else{
                 $("#result1").html("");
+                $("#result1").css("border","none");
             }        
         }   
 
@@ -291,15 +293,17 @@
                     $(".resultTopic").click(function(){
                         arr.push($(this).html());                      
                         $("#topica").append('<input id="topic'+ind1+'" type="checkbox" name="topic[]" checked value="'+$(this).html()+'">');
-                        $("#topic").before("<span style='background-color:#DDDDDD;border-radius:2px' id='a"+ind1+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete2("+ind1+")'></i></span>");
+                        $("#topic").before("<span style='background-color:#fff;border-radius:2px' id='a"+ind1+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete2("+ind1+")'></i></span>");
                         ind++;
                         $("#topic").val("");
                         $(".resultTopic").html("");
+                        $("#resultTopic").css("border","none");
                     });
                 });
             }    
             else{
                 $("#resultTopic").html("");
+                $("#resultTopic").css("border","none");
             }        
         }   
 

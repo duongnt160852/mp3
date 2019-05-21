@@ -39,6 +39,13 @@ class Music extends Model
         $music->save();
     }
 
+    static public function getRandomMusic($num){
+        $randomMusic=Music::where("status",1)->inRandomOrder()->get();
+        $a=array();
+        for($i=0;$i<$num;$i++) array_push($a,$randomMusic[$i]);
+        return $a;
+    }
+
     public function music_singer(){
         return $this->hasMany(Music_singer::class,'id_music','id');
     }

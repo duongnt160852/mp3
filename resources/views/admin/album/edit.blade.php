@@ -130,7 +130,7 @@
                                                         <label>Ca Sĩ</label>
                                                         <div  class="form-control" style="border:1px solid #CCC5B9">
                                                             @for($i=0;$i<count($album->album_singer);$i++)
-                                                                <span style='background-color:#DDDDDD;border-radius:2px' id={{$i+1}}>{{$album->album_singer[$i]->singer->name}}<i class='fas fa-window-close' onclick='delete1({{$i+1}})'></i></span>
+                                                                <span style='background-color:#fff;border-radius:2px' id={{$i+1}}>{{$album->album_singer[$i]->singer->name}}<i class='fas fa-window-close' onclick='delete1({{$i+1}})'></i></span>
                                                             @endfor
                                                             <input type="text" class="border-input" id="singer"  onkeyup="showResult()" style="border: none;background-color: #fffcf5">                                                    
                                                         </div>
@@ -203,15 +203,17 @@
                     $(".result").click(function(){
                         arr.push($(this).html());                      
                         $("#singera").append('<input id="singer'+ind+'" type="checkbox" name="singer[]" checked value="'+$(this).html()+'">');
-                        $("#singer").before("<span style='background-color:#DDDDDD;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
+                        $("#singer").before("<span style='background-color:#fff;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
                         ind++;
                         $("#singer").val("");
                         $(".result").html("");
+                        $("#result").css("border","none");
                     });
                 });
             }    
             else{
                 $("#result").html("");
+                $("#result").css("border","none");
             }        
         }   
 

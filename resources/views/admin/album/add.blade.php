@@ -143,7 +143,7 @@
                                                         <div  class="form-control" style="border:1px solid #CCC5B9">
                                                             <input type="text" class="border-input" id="singer"  onkeyup="showResult()" style="border: none;background-color: #fffcf5">                                                    
                                                         </div>
-                                                        <div id="result" style="padding-left: 18px;max-height: 300px;overflow-y: scroll;">
+                                                        <div id="result" style="padding-left: 18px;max-height: 300px;overflow-y: auto;">
                                                             
                                                         </div>
                                                     </div>
@@ -194,15 +194,17 @@
                     $(".result1").click(function(){
                         arr.push($(this).html());                      
                         $("#singera").append('<input id="singer'+ind+'" type="checkbox" name="singer[]" checked value="'+$(this).html()+'">');
-                        $("#singer").before("<span style='background-color:#DDDDDD;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
+                        $("#singer").before("<span style='background-color:#fff;border-radius:2px' id='"+ind+"'>"+$(this).html()+"<i class='fas fa-window-close' onclick='delete1("+ind+")'></i></span>");
                         ind++;
                         $("#singer").val("");
                         $(".result1").html("");
+                        $("#result").css("border","none");
                     });
                 });
             }    
             else{
                 $("#result").html("");
+                $("#result").css("border","none");
             }        
         }   
 

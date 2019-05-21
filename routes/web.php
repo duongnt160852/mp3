@@ -89,7 +89,7 @@ Route::group(["middleware"=>"auth"],function(){
 	Route::get("user/logout","LoginController@userLogout");
 });
 
-Route::group(["prefix"=>"admin", "middleware"=>"admin"],function(){
+Route::group(["prefix"=>"admin","middleware"=>"admin"],function(){
 	Route::group(["prefix"=>"singer"],function(){
 		Route::get("list","AdminController@getListSinger");
 		Route::get("add","AdminController@getAddSinger");

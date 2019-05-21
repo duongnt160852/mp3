@@ -72,6 +72,7 @@ $(".next").click(function(){
       }
       $(".artist-name").append("- Sáng tác: "+data.musician);
       $(".fill").slider({value:0});
+      $(".list1").scrollTop($("#song1"+undoRedoHandler._redoStack[undoRedoHandler._redoStack.length-1].id).position().top-$(".list1").position().top);
       audio.src=data.link;
       audio.currentTime=0;
       percent=0;
@@ -118,6 +119,7 @@ $(".previous").click(function(){
       }
       $(".artist-name").append("- Sáng tác: "+data.musician);
       $(".fill").slider({value:0});
+      $(".list1").scrollTop($("#song1"+undoRedoHandler._redoStack[undoRedoHandler._redoStack.length-1].id).position().top-$(".list1").position().top);
       audio.src=data.link;
       audio.currentTime=0;
       percent=0;

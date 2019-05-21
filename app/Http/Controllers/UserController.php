@@ -294,9 +294,7 @@ class UserController extends Controller
     }
 
     function change(){
-        $a="Nguyễn Tùng Dương 123456";
-        $a=changeTitle($a);
-        echo $a;
+        dd(Music::getRandomMusic(10));
     }
 
     function getHome(){
@@ -372,9 +370,9 @@ class UserController extends Controller
             $user=null;
             $id1=null;
         }
-        $mostViewMusics=Music::getMostViewMusics();
+        $randomMusics=Music::getRandomMusic(10);
         $playlist=Playlist::find($id);
-        return view("user/playlist",["playlist"=>$playlist,"mostViewMusics"=>$mostViewMusics,"user"=>$user,"id"=>$id1]);
+        return view("user/playlist",["playlist"=>$playlist,"mostViewMusics"=>$randomMusics,"user"=>$user,"id"=>$id1]);
     }
     function getAlbum($id){
         $music=Music::find($id);

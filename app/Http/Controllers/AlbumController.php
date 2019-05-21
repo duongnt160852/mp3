@@ -25,9 +25,9 @@ class AlbumController extends Controller
             $user=null;
             $id=null;
         }
-        $mostViewMusics=Music::getMostViewMusics();
+        $randomMusics=Music::getRandomMusic(10);
     	$album=Album::where("title",$title)->get()[0];
-    	return view("user/album",["album"=>$album,"mostViewMusics"=>$mostViewMusics,"user"=>$user,"id"=>$id]);
+    	return view("user/album",["album"=>$album,"mostViewMusics"=>$randomMusics,"user"=>$user,"id"=>$id]);
     }
 
     function getListAlbum(){
